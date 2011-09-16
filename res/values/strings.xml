@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="sense_app_name">Sense Platform</string>
-    <string name="paige_name">Paige</string>
-    <string name="paige_url">http://paige.ask-cs.com/paige.html</string>
-   
+    <string name="paige_name">TNT FIQS Driving</string>
+    <string name="paige_url">http://fiqs.rotterdam-cs.com</string>
+    <!--<string name="paige_url">http://10.200.200.113:9999/paige.html</string>-->
+    <string name="icon_name">@drawable/fiqs_driver_launcher_icon72x72</string>
+  
     <string name="button_cancel">Cancel</string>
     <string name="button_faq">FAQ</string>
     <string name="button_login">Login</string>
