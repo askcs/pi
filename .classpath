@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="lib" path="libs/phonegap-1.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/AndroidBluetoothAPI_0.3.jar"/>
+	<classpathentry kind="src" path="Paige Execution Environment_src"/>
+	<classpathentry kind="src" path="Sense Service_src"/>
+	<classpathentry kind="src" path="Sense App_src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
