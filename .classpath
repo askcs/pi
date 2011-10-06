@@ -6,7 +6,7 @@
 	<classpathentry exported="true" kind="lib" path="libs/phonegap-1.0.0.jar"/>
 	<classpathentry kind="lib" path="libs/AndroidBluetoothAPI_0.3.jar"/>
 	<classpathentry kind="src" path="Paige Execution Environment_src"/>
-	<classpathentry kind="src" path="Sense Service_src"/>
 	<classpathentry kind="src" path="Sense App_src"/>
+	<classpathentry kind="src" path="Sense Service_src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
