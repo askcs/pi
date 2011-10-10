@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="sense_app_name">Sense Platform</string>
-    <string name="app_name">Ecare Buurtzorg App</string>
-    <string name="package_name">nl.ask.ecare</string>
-    <string name="app_url">http://ecare.paige4ask.appspot.com</string>
+    <string name="app_name">Paige</string>
+    <!-- <string name="app_url">http://10.200.200.113:9999</string> -->
+    <string name="app_url">http://paige.ask-cs.com/paige.html</string>
     <string name="icon_name">@drawable/icon_paige</string>
+    
+    <string name="stat_notify_action">nl.ask.paige.app.Paige</string>
+    <string name="stat_notify_title">Paige</string>
+    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string> 
+    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>  
+    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string> 
+    <string name="stat_notify_content_on_loggedout">Sensors active, no connection to CommonSense</string>
+    
 </resources>
