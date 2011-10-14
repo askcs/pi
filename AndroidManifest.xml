@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="nl.ask.ecare" android:versionCode="1" android:versionName="1.0">
+	package="nl.ask.ecare" android:versionCode="2" android:versionName="2.0">
 
 	<uses-feature android:name="android.hardware.location.gps"
 		android:required="true" />
