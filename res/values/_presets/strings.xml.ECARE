@@ -26,8 +26,8 @@
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
     <string name="stat_notify_action">nl.ask.paige.app.Paige</string>
     <string name="stat_notify_title">Buurtzorg</string>
-    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string>
-    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to server</string>
-    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string>
-    <string name="stat_notify_content_on_loggedout">Sensors active, no connection to server</string>
+    <string name="stat_notify_content_off_loggedin">Service inactive, logged in as \'%s\'</string>
+    <string name="stat_notify_content_off_loggedout">Service inactive</string>
+    <string name="stat_notify_content_on_loggedin">"Service active, logged in as \'%s\'"</string>
+    <string name="stat_notify_content_on_loggedout">Service active</string>
 </resources>
