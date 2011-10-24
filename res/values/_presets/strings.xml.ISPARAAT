@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <!-- MAIN APP NAME -->
+    <string name="app_name">IsParaat (beta)</string>
+
+    <!-- OVERRIDE SENSE APP LABEL -->
+    <string name="sense_app_name">Sense Platform</string>
+
+    <!-- URL FOR WEB VIEW CONTENT -->
+    <!-- <string name="app_url">http://10.200.200.113:9999</string> -->
+    <string name="app_url">http://paige.ask-cs.com/isParaat.html</string>
+    
+    <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
+    <string name="action_sense_app">nl.ask.isParaat.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.isParaat.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.isParaat.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.isParaat.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.isParaat.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.isParaat.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.isParaat.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.isParaat.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.isParaat.DataTransmit</string> 
+    <string name="action_widget_update">nl.ask.isParaat.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ask.isParaat.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ask.isParaat.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ask.isParaat.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ask.isParaat.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ask.isParaat.StartDevices</string>
+    <string name="action_widget_start_external">nl.ask.isParaat.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ask.isParaat.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ask.isParaat.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ask.isParaat.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ask.isParaat.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ask.isParaat.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ask.isParaat.StopExternal</string>
+    
+    <string name="stat_notify_action">nl.ask.paige.app.Paige</string>
+    <string name="stat_notify_title">IsParaat</string>
+    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string> 
+    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to service</string>  
+    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string> 
+    <string name="stat_notify_content_on_loggedout">Sensors active, no connection to service</string>
+    
+</resources>

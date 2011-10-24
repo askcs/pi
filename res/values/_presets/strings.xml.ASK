@@ -8,7 +8,7 @@
 
     <!-- URL FOR WEB VIEW CONTENT -->
     <!-- <string name="app_url">http://10.200.200.113:9999</string> -->
-    <string name="app_url">http://paige.ask-cs.com/paige.html</string>
+    <string name="app_url">http://paige.ask-cs.com</string>
     
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.SenseApp</string>
