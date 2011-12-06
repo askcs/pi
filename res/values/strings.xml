@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>    
+<resources>
     <!-- MAIN APP NAME -->
-    <string name="app_name">Paige</string>
+    <string name="app_name">FIQS Driving</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
-    <string name="sense_app_name">Sense Platform</string>
+    <string name="sense_app_name">FIQS Driving</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-    <!-- <string name="app_url">http://10.200.200.113:9999</string> -->
-    <string name="app_url">http://paige.ask-cs.com</string>
-    
+    <string name="app_url">https://fiqs.rotterdam-cs.com/fiqs/fiqs/drivermobileapp/phonegap/assets/www/index.html</string>
+
+    <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
+
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.SenseApp</string>
-    <string name="action_sense_settings">nl.ask.paige.SenseSettings</string>
-    <string name="action_sense_service">nl.ask.paige.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.DataTransmit</string> 
-    <string name="action_widget_update">nl.ask.paige.AppWidgetUpdate</string>
-    <string name="action_widget_start_phone_state">nl.ask.paige.StartPhoneState</string>
-    <string name="action_widget_start_location">nl.ask.paige.StartLocation</string>
-    <string name="action_widget_start_motion">nl.ask.paige.StartMotion</string>
-    <string name="action_widget_start_ambience">nl.ask.paige.StartAmbience</string>
-    <string name="action_widget_start_devices">nl.ask.paige.StartDevices</string>
-    <string name="action_widget_start_external">nl.ask.paige.StartExternal</string>
-    <string name="action_widget_stop_phone_state">nl.ask.paige.StopPhoneState</string>
-    <string name="action_widget_stop_location">nl.ask.paige.StopLocation</string>
-    <string name="action_widget_stop_motion">nl.ask.paige.StopMotion</string>
-    <string name="action_widget_stop_ambience">nl.ask.paige.StopAmbience</string>
-    <string name="action_widget_stop_devices">nl.ask.paige.StopDevices</string>
-    <string name="action_widget_stop_external">nl.ask.paige.StopExternal</string>
-    
-    <string name="stat_notify_action">nl.ask.paige.app.Paige</string>
-    <string name="stat_notify_title">Paige</string>
-    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string> 
-    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>  
-    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string> 
-    <string name="stat_notify_content_on_loggedout">Sensors active, no connection to CommonSense</string>
-    
+    <string name="action_sense_app">nl.rotterdam_cs.fiqs.SenseApp</string>
+    <string name="action_sense_settings">nl.rotterdam_cs.fiqs.SenseSettings</string>
+    <string name="action_sense_service">nl.rotterdam_cs.fiqs.SenseService</string>
+    <string name="action_sense_new_data">nl.rotterdam_cs.fiqs.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.rotterdam_cs.fiqs.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.rotterdam_cs.fiqs.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.rotterdam_cs.fiqs.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.rotterdam_cs.fiqs.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.rotterdam_cs.fiqs.DataTransmit</string>
+
+    <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
+    <string name="local_storage_authority">nl.rotterdam_cs.fiqs.provider.LocalStorage</string>
+
+    <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
+    <string name="stat_notify_action">nl.rotterdam_cs.fiqs.Paige</string>
+    <string name="stat_notify_title">FIQS Driving</string>
+    <string name="stat_notify_content_off_loggedin">Service inactief, ingelogd als \'%s\'</string>
+    <string name="stat_notify_content_off_loggedout">Service inactief, geen verbinding met server</string>
+    <string name="stat_notify_content_on_loggedin">"Service actief, ingelogd als \'%s\'"</string>
+    <string name="stat_notify_content_on_loggedout">Service actief, geen verbinding met server</string>
 </resources>

@@ -30,21 +30,4 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Paige Execution Environment_src</name>
-			<type>2</type>
-			<locationURI>_android_Paige_Execution_Environment_1fd09381/src</locationURI>
-		</link>
-		<link>
-			<name>Sense App_src</name>
-			<type>2</type>
-			<locationURI>_android_Sense_App_92d04a6f/src</locationURI>
-		</link>
-		<link>
-			<name>Sense Service_src</name>
-			<type>2</type>
-			<locationURI>_android_Sense_Service_6975c003/src</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
