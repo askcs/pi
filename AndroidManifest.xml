@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20111017"
-    android:versionName="1.0"
-    package="nl.ask.paige">
+    android:versionCode="20111031"
+    android:versionName="1.0.2"
+    package="nl.ask.isParaat">
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -53,11 +53,11 @@
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="7" />
+        android:targetSdkVersion="10" />
 
     <application
         android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher_paige">
+        android:icon="@drawable/ic_launcher_isparaat">
 
         <!-- REQUIRED FOR PHONEGAP -->
         <activity
@@ -77,6 +77,10 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="nl.ask.isParaat.Paige" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="nl.ask.paige.app.Paige" />
@@ -122,36 +126,12 @@
         </service>
         
         <!-- SENSE PLATFORM COMPONENTS -->
-        <activity
-            android:name="nl.sense_os.app.SenseApp"
-            android:launchMode="singleInstance"
-            android:configChanges="orientation"
-            android:theme="@android:style/Theme.Light"
-            android:process="nl.sense_os.app"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="nl.ask.paige.SenseApp" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="nl.sense_os.app.SenseSettings"
-            android:configChanges="orientation"
-            android:process="nl.sense_os.app"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="nl.ask.paige.SenseSettings" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <service
             android:name="nl.sense_os.service.SenseService"
             android:process="nl.sense_os.service"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.SenseService" />
+                <action android:name="nl.ask.isParaat.SenseService" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
@@ -161,34 +141,14 @@
             android:process="nl.sense_os.msgs"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.isParaat.MsgHandler.NEW_DATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.isParaat.MsgHandler.SEND_DATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
-        <service
-            android:name="nl.sense_os.service.feedback.FeedbackChecker"
-            android:process="nl.sense_os.service"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="nl.ask.paige.FeedbackCheck" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-
-        <receiver
-            android:name="nl.sense_os.service.feedback.FeedbackRx"
-            android:process="nl.sense_os.service"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="nl.ask.paige.FeedbackAlarm" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
@@ -204,7 +164,7 @@
             android:process="nl.sense_os.service.alivechecker"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.AliveCheck" />
+                <action android:name="nl.ask.isParaat.AliveCheck" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
@@ -214,66 +174,10 @@
             android:process="nl.sense_os.service.datatransmitter"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.DataTransmit" />
+                <action android:name="nl.ask.isParaat.DataTransmit" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name="nl.sense_os.app.appwidget.SenseWidgetProvider">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>            
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_provider_info" />
-        </receiver>
-        
-        <service android:name="nl.sense_os.app.appwidget.SenseWidgetUpdater">
-            <intent-filter>
-                <action android:name="nl.ask.paige.AppWidgetUpdate" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StartPhoneState" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StopPhoneState" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StartLocation" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StopLocation" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StartMotion" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StopMotion" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StartAmbience" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StopAmbience" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StartDevices" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.StopDevices" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
 
     </application>
 </manifest>
