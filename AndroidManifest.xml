@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20111214"
+    android:versionCode="20111215"
     android:versionName="beta version"
     package="nl.ask.paige.app">
 
