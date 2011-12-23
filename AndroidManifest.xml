@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20111215"
+    android:versionCode="20111216"
     android:versionName="beta version"
     package="nl.ask.paige.app">
 
@@ -79,7 +79,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.Paige" />
+                <action android:name="nl.ask.paige.app.NOTIFICATION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
@@ -124,7 +124,7 @@
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:process="nl.sense_os.service"
+            android:process="nl.ask.paige.app.sense_service"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.SenseService" />
@@ -134,7 +134,7 @@
 
         <service
             android:name="nl.sense_os.service.MsgHandler"
-            android:process="nl.sense_os.msgs"
+            android:process="nl.ask.paige.app.sense_msgs"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.MsgHandler.NEW_DATA" />
@@ -148,7 +148,7 @@
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.sense_os.service">
+            android:process="nl.ask.paige.app.sense_monitoring">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.HOME" />
@@ -157,7 +157,7 @@
 
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
-            android:process="nl.sense_os.service.alivechecker"
+            android:process="nl.ask.paige.app.sense_monitoring"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.AliveCheck" />
@@ -167,10 +167,19 @@
 
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
-            android:process="nl.sense_os.service.datatransmitter"
+            android:process="nl.ask.paige.app.sense_monitoring"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.DataTransmit" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver
+            android:name="nl.sense_os.service.NetworkMonitor" 
+            android:process="nl.ask.paige.app.sense_service" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
