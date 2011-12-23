@@ -178,6 +178,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        
+        <receiver
+            android:name="nl.sense_os.service.NetworkMonitor" 
+            android:process="nl.rotterdam_cs.fiqs.service" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
