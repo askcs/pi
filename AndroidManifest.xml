@@ -128,7 +128,7 @@
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:process="nl.sense_os.service"
+            android:process="nl.ask.isParaat.sense_service"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.isParaat.SenseService" />
@@ -138,7 +138,7 @@
 
         <service
             android:name="nl.sense_os.service.MsgHandler"
-            android:process="nl.sense_os.msgs"
+            android:process="nl.ask.isParaat.sense_msgs"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.isParaat.MsgHandler.NEW_DATA" />
@@ -152,7 +152,7 @@
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.sense_os.service">
+            android:process="nl.ask.isParaat.sense_monitoring">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.HOME" />
@@ -161,7 +161,7 @@
 
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
-            android:process="nl.sense_os.service.alivechecker"
+            android:process="nl.ask.isParaat.sense_monitoring"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.isParaat.AliveCheck" />
@@ -171,10 +171,19 @@
 
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
-            android:process="nl.sense_os.service.datatransmitter"
+            android:process="nl.ask.isParaat.sense_monitoring"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.isParaat.DataTransmit" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver
+            android:name="nl.sense_os.service.NetworkMonitor" 
+            android:process="nl.ask.isParaat.sense_service" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
