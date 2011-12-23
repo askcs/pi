@@ -7,7 +7,7 @@
     <string name="sense_app_name">Buurtzorg</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-    <string name="app_url">http://ecare.paige4ask.appspot.com/paige.html</string>
+    <string name="app_url">http://ecare.paige4ask.appspot.com</string>
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
 
