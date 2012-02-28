@@ -54,7 +54,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    
+
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="10" />
@@ -87,37 +87,31 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.TEXT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.SUBJECT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
-        <receiver
-            android:name="nl.ask.paige.receiver.IntentRx" >
+        <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.IntentRx"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="nl.ask.paige.app.IntentRx" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <receiver android:name="nl.ask.paige.app.boot.BootRx" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" >
+            <intent-filter>
+                <action android:name="nl.ask.paige.app.MSG_CHECK_ALARM" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" >
+            <intent-filter>
+                <action android:name="nl.ask.paige.app.CHECK_MSGS" />
+            </intent-filter>
+        </service>
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
@@ -147,8 +141,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+        <service android:name="nl.sense_os.service.states.EpiStateMonitor" >
+        </service>
 
-        <service android:name="nl.sense_os.service.states.EpiStateMonitor"></service><receiver
+        <receiver
             android:name="nl.sense_os.service.BootRx"
             android:process="nl.ask.paige.app.sense_monitoring" >
             <intent-filter>
@@ -187,7 +183,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        
     </application>
 
 </manifest>
