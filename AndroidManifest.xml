@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.ask.paige.app"
-    android:versionCode="20111216"
-    android:versionName="beta version" >
+    android:versionCode="20120228"
+    android:versionName="beta" >
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -101,17 +101,9 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" >
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.MSG_CHECK_ALARM" />
-            </intent-filter>
-        </receiver>
+        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" />
 
-        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" >
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.CHECK_MSGS" />
-            </intent-filter>
-        </service>
+        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
