@@ -28,6 +28,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+    <!-- implied by permission NFC, but not required -->
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -37,6 +41,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -61,10 +66,7 @@
 
         <!-- REQUIRED FOR PHONEGAP -->
         <activity
-            android:name="com.phonegap.DroidGap"
-            android:label="@string/app_name"
-            android:configChanges="orientation|keyboardHidden">
-        </activity>
+            android:name="com.phonegap.DroidGap" />
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
@@ -82,48 +84,24 @@
                 <action android:name="nl.ask.isParaat.Paige" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.Paige" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.SUBJECT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
         <receiver
             android:name="nl.ask.paige.receiver.IntentRx"
             android:launchMode="singleInstance">
             <intent-filter>
-                <action android:name="nl.ask.paige.receiver.IntentRx" />
+                <action android:name="nl.ask.isParaat.IntentRx" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <receiver android:name="nl.ask.paige.app.boot.BootRx" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" />
 
-        <service android:name="nl.ask.paige.app.PaigeService">
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.PaigeService" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.PaigeService.alert" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
+        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" />
         
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
@@ -138,7 +116,6 @@
 
         <service
             android:name="nl.sense_os.service.MsgHandler"
-            android:process="nl.ask.isParaat.sense_msgs"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.isParaat.MsgHandler.NEW_DATA" />
