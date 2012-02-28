@@ -90,8 +90,7 @@
             android:name="nl.ask.paige.receiver.IntentRx"
             android:launchMode="singleInstance" >
             <intent-filter>
-                <action android:name="nl.ask.paige.receiver.IntentRx" />
-
+                <action android:name="nl.rotterdam_cs.fiqs.IntentRx" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
