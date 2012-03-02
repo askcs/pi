@@ -65,6 +65,9 @@
     <plugin
         name="ImeiPlugin"
         value="nl.ask.paige.plugin.ImeiPlugin" />
+    <plugin
+        name="PeePlugin"
+        value="nl.ask.paige.plugin.PeePlugin" />
 
     <!-- Sense plugin -->
     <plugin
