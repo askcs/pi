@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20111216"
+    android:versionCode="20120207"
     android:versionName="beta version"
-    package="nl.ask.paige.app">
+    package="nl.ask.paige.dealrecipient">
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -75,7 +75,7 @@
             android:name="nl.ask.paige.app.Paige"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:process="nl.ask.paige.app"
+            android:process="nl.ask.paige.dealrecipient"
             android:multiprocess="false"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -83,7 +83,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.app.NOTIFICATION" />
+                <action android:name="nl.ask.paige.dealrecipient.app.NOTIFICATION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
@@ -128,31 +128,31 @@
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:process="nl.ask.paige.app.sense_service"
+            android:process="nl.ask.paige.dealrecipient.sense_service"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.SenseService" />
+                <action android:name="nl.ask.paige.dealrecipient.SenseService" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
         <service
             android:name="nl.sense_os.service.MsgHandler"
-            android:process="nl.ask.paige.app.sense_msgs"
+            android:process="nl.ask.paige.dealrecipient.sense_msgs"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.dealrecipient.MsgHandler.NEW_DATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.paige.dealrecipient.MsgHandler.SEND_DATA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.app.sense_monitoring">
+            android:process="nl.ask.paige.dealrecipient.sense_monitoring">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.HOME" />
@@ -161,27 +161,27 @@
 
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
-            android:process="nl.ask.paige.app.sense_monitoring"
+            android:process="nl.ask.paige.dealrecipient.sense_monitoring"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.AliveCheck" />
+                <action android:name="nl.ask.paige.dealrecipient.AliveCheck" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
-            android:process="nl.ask.paige.app.sense_monitoring"
+            android:process="nl.ask.paige.dealrecipient.sense_monitoring"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.DataTransmit" />
+                <action android:name="nl.ask.paige.dealrecipient.DataTransmit" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
         
         <receiver
             android:name="nl.sense_os.service.NetworkMonitor" 
-            android:process="nl.ask.paige.app.sense_service" >
+            android:process="nl.ask.paige.dealrecipient.sense_service" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <category android:name="android.intent.category.DEFAULT" />
