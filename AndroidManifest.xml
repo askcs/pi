@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20111216"
-    android:versionName="beta version"
-    package="nl.ask.paige.dealdriver">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nl.ask.paige.dealdriver"
+    android:versionCode="20120305"
+    android:versionName="beta (Mar 5 2012)" >
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -28,10 +27,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-	<uses-feature
-       android:name="android.hardware.nfc"
-       android:required="false" />
-    
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -60,133 +59,105 @@
         android:targetSdkVersion="10" />
 
     <application
-        android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher_paige">
+        android:icon="@drawable/ic_launcher_paige"
+        android:label="@string/app_name" >
 
         <!-- REQUIRED FOR PHONEGAP -->
-        <activity
-            android:name="com.phonegap.DroidGap"
-            android:label="@string/app_name"
-            android:configChanges="orientation|keyboardHidden">
-        </activity>
+        <activity android:name="com.phonegap.DroidGap" />
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
             android:name="nl.ask.paige.app.Paige"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:process="nl.ask.paige.app"
             android:multiprocess="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.app.NOTIFICATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.SUBJECT" />
+                <action android:name="nl.ask.paige.dealdriver.NOTIFICATION" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <receiver
             android:name="nl.ask.paige.receiver.IntentRx"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance" >
             <intent-filter>
-                <action android:name="nl.ask.paige.receiver.IntentRx" />
+                <action android:name="nl.ask.paige.dealdriver.IntentRx" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="nl.ask.paige.app.PaigeService">
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.PaigeService" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.PaigeService.alert" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-        
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:process="nl.ask.paige.app.sense_service"
-            android:exported="false" >
+            android:exported="false"
+            android:process="nl.ask.paige.dealdriver.sense_service" >
             <intent-filter>
-                <action android:name="nl.ask.paige.SenseService" />
+                <action android:name="nl.ask.paige.dealdriver.SenseService" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
         <service
             android:name="nl.sense_os.service.MsgHandler"
-            android:process="nl.ask.paige.app.sense_msgs"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.dealdriver.MsgHandler.NEW_DATA" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.paige.dealdriver.MsgHandler.SEND_DATA" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.app.sense_monitoring">
+            android:process="nl.ask.paige.dealdriver.sense_monitoring" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
-            android:process="nl.ask.paige.app.sense_monitoring"
-            android:exported="false" >
+            android:exported="false"
+            android:process="nl.ask.paige.dealdriver.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.AliveCheck" />
+                <action android:name="nl.ask.paige.dealdriver.AliveCheck" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
-            android:process="nl.ask.paige.app.sense_monitoring"
-            android:exported="false" >
+            android:exported="false"
+            android:process="nl.ask.paige.dealdriver.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.DataTransmit" />
+                <action android:name="nl.ask.paige.dealdriver.DataTransmit" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        
         <receiver
-            android:name="nl.sense_os.service.NetworkMonitor" 
-            android:process="nl.ask.paige.app.sense_service" >
+            android:name="nl.sense_os.service.NetworkMonitor"
+            android:process="nl.ask.paige.dealdriver.sense_service" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
     </application>
+
 </manifest>

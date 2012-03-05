@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>    
+<resources>
+
     <!-- MAIN APP NAME -->
     <string name="app_name">DEAL Driver</string>
 
@@ -7,40 +8,41 @@
     <string name="sense_app_name">DEAL Driver (Sense)</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-<!-- <string name="app_url">http://dealdriver.paige4ask.appspot.com/paige.html</string> -->
-    <string name="app_url">http://10.200.200.115:8889/paige.html</string>
-<!--     <string name="app_url">http://paige4ask.appspot.com</string> -->
-<!--    <string name="app_url">http://paige.ask-cs.com</string> -->
-    
+    <string name="app_url">http://dealdriver.paige4ask.appspot.com/paige.html</string>
+    <!-- <string name="app_url">http://10.200.200.115:8889/paige.html</string> -->
+    <!-- <string name="app_url">http://paige4ask.appspot.com</string> -->
+    <!-- <string name="app_url">http://paige.ask-cs.com</string> -->
+
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.SenseApp</string>
-    <string name="action_sense_settings">nl.ask.paige.SenseSettings</string>
-    <string name="action_sense_service">nl.ask.paige.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.DataTransmit</string> 
-    <string name="action_widget_update">nl.ask.paige.AppWidgetUpdate</string>
-    <string name="action_widget_start_phone_state">nl.ask.paige.StartPhoneState</string>
-    <string name="action_widget_start_location">nl.ask.paige.StartLocation</string>
-    <string name="action_widget_start_motion">nl.ask.paige.StartMotion</string>
-    <string name="action_widget_start_ambience">nl.ask.paige.StartAmbience</string>
-    <string name="action_widget_start_devices">nl.ask.paige.StartDevices</string>
-    <string name="action_widget_start_external">nl.ask.paige.StartExternal</string>
-    <string name="action_widget_stop_phone_state">nl.ask.paige.StopPhoneState</string>
-    <string name="action_widget_stop_location">nl.ask.paige.StopLocation</string>
-    <string name="action_widget_stop_motion">nl.ask.paige.StopMotion</string>
-    <string name="action_widget_stop_ambience">nl.ask.paige.StopAmbience</string>
-    <string name="action_widget_stop_devices">nl.ask.paige.StopDevices</string>
-    <string name="action_widget_stop_external">nl.ask.paige.StopExternal</string>
+    <string name="action_sense_app">nl.ask.paige.dealdriver.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.paige.dealdriver.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.paige.dealdriver.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.dealdriver.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.dealdriver.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.dealdriver.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.dealdriver.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.dealdriver.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.dealdriver.DataTransmit</string>
+    <string name="action_widget_update">nl.ask.paige.dealdriver.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ask.paige.dealdriver.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ask.paige.dealdriver.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ask.paige.dealdriver.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ask.paige.dealdriver.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ask.paige.dealdriver.StartDevices</string>
+    <string name="action_widget_start_external">nl.ask.paige.dealdriver.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ask.paige.dealdriver.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ask.paige.dealdriver.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ask.paige.dealdriver.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ask.paige.dealdriver.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ask.paige.dealdriver.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ask.paige.dealdriver.StopExternal</string>
     
-    <string name="stat_notify_action">nl.ask.paige.app.NOTIFICATION</string>
+    <!-- NOTIFICATION RESOURCES -->
+    <string name="stat_notify_action">nl.ask.paige.dealdriver.NOTIFICATION</string>
     <string name="stat_notify_title">DEAL Driver</string>
-    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string> 
-    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>  
-    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string> 
+    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string>
+    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>
+    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string>
     <string name="stat_notify_content_on_loggedout">Sensors active, no connection to CommonSense</string>
-    
+
 </resources>
