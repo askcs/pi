@@ -3,6 +3,8 @@
 	<name>ASK_Sense_combi_app</name>
 	<comment></comment>
 	<projects>
+		<project>Paige Execution Environment</project>
+		<project>Sense Service</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
