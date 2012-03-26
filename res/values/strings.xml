@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MAIN APP NAME -->
+    <string name="app_name">Moodie</string>
+
+    <!-- OVERRIDE SENSE APP LABEL -->
+    <string name="sense_app_name">Sense Platform</string>
+
+    <!-- URL FOR WEB VIEW CONTENT -->
+    <!-- <string name="app_url">http://10.200.200.148:8889</string> -->
+    <string name="app_url">http://moodie.paige4ask.appspot.com</string>
+
+    <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
+    <string name="action_sense_app">nl.ask.paige.moodie.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.paige.moodie.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.paige.moodie.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.moodie.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.moodie.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.moodie.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.moodie.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.moodie.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.moodie.DataTransmit</string>
+    <string name="action_widget_update">nl.ask.paige.moodie.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ask.paige.moodie.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ask.paige.moodie.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ask.paige.moodie.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ask.paige.moodie.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ask.paige.moodie.StartDevices</string>
+    <string name="action_widget_start_external">nl.ask.paige.moodie.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ask.paige.moodie.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ask.paige.moodie.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ask.paige.moodie.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ask.paige.moodie.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ask.paige.moodie.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ask.paige.moodie.StopExternal</string>
+
+    <!-- NOTIFICATION RESOURCES -->
+    <string name="stat_notify_action">nl.ask.paige.moodie.NOTIFICATION</string>
+    <string name="stat_notify_title">Moodie</string>
+    <string name="stat_notify_content_off_loggedin">Meting gestopt, ingelogd als \'%s\'</string>
+    <string name="stat_notify_content_off_loggedout">Meting gestopt, geen verbinding met server</string>
+    <string name="stat_notify_content_on_loggedin">"Meting actief, ingelogd als \'%s\'"</string>
+    <string name="stat_notify_content_on_loggedout">Meting actief, geen verbinding met server</string>
+
+</resources>
