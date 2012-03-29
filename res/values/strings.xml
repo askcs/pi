@@ -7,7 +7,7 @@
     <string name="sense_app_name">FIQS Driving</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-    <string name="app_url">https://fiqs.rotterdam-cs.com/fiqs/fiqs/drivermobileapp/phonegap/assets/www/index.html</string>
+    <string name="app_url">https://fiqs.tnt.com/fiqs/fiqs/drivermobileapp/phonegap/assets/www/index.html</string>
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
 
@@ -21,6 +21,7 @@
     <string name="action_sense_feedback_check_alarm">nl.rotterdam_cs.fiqs.FeedbackAlarm</string>
     <string name="action_sense_alive_check_alarm">nl.rotterdam_cs.fiqs.AliveCheck</string>
     <string name="action_sense_data_transmit_alarm">nl.rotterdam_cs.fiqs.DataTransmit</string>
+    <string name="action_widget_update">nl.rotterdam_cs.fiqs.AppWidgetUpdate</string>  
 
     <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
     <string name="local_storage_authority">nl.rotterdam_cs.fiqs.provider.LocalStorage</string>
