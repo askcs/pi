@@ -8,11 +8,10 @@
     <string name="sense_app_name">DEAL Driver (Sense)</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-    <string name="app_url">http://dealdriver.paige4ask.appspot.com/paige.html</string>
-    <!-- <string name="app_url">http://10.200.200.115:8889/paige.html</string> -->
-    <!-- <string name="app_url">http://paige4ask.appspot.com</string> -->
-    <!-- <string name="app_url">http://paige.ask-cs.com</string> -->
-
+	<string name="app_url">http://dealdriver.paige4ask.appspot.com/paige.html</string>
+<!--     <string name="app_url">http://10.200.200.115:8889/paige.html</string> -->
+<!--     <string name="app_url">http://paige4ask.appspot.com</string> -->
+<!--    <string name="app_url">http://paige.ask-cs.com</string> -->    
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.dealdriver.SenseApp</string>
     <string name="action_sense_settings">nl.ask.paige.dealdriver.SenseSettings</string>
