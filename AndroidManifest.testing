@@ -68,7 +68,7 @@
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
-            android:name="nl.ask.paige.app.TestPaige"
+            android:name="nl.ask.paige.app.Paige"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:multiprocess="false"
