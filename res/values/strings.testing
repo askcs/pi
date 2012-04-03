@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MAIN APP NAME -->
+    <string name="app_name">FIQS Testdriving</string>
+
+    <!-- URL FOR WEB VIEW CONTENT -->
+    <string name="app_url">http://fiqs.rotterdam-cs.com/fiqs/fiqs/drivermobileapp/phonegap/assets/www/index.html</string>
+
+    <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
+
+    <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
+    <string name="action_sense_app">nl.rotterdam_cs.fiqs_test.SenseApp</string>
+    <string name="action_sense_service">nl.rotterdam_cs.fiqs_test.SenseService</string>
+    <string name="action_sense_new_data">nl.rotterdam_cs.fiqs_test.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.rotterdam_cs.fiqs_test.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.rotterdam_cs.fiqs_test.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.rotterdam_cs.fiqs_test.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.rotterdam_cs.fiqs_test.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.rotterdam_cs.fiqs_test.DataTransmit</string>
+    <string name="action_widget_update">nl.rotterdam_cs.fiqs_test.AppWidgetUpdate</string>  
+
+    <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
+    <string name="local_storage_authority">nl.rotterdam_cs.fiqs_test.provider.LocalStorage</string>
+
+    <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
+    <string name="stat_notify_action">nl.rotterdam_cs.fiqs_test.Paige</string>
+    <string name="stat_notify_title">FIQS Testdriving</string>
+    <string name="stat_notify_content_off_loggedin">Service inactief, ingelogd als \'%s\'</string>
+    <string name="stat_notify_content_off_loggedout">Service inactief, geen verbinding met server</string>
+    <string name="stat_notify_content_on_loggedin">"Service actief, ingelogd als \'%s\'"</string>
+    <string name="stat_notify_content_on_loggedout">Service actief, geen verbinding met server</string>
+</resources>
