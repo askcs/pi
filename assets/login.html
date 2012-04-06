@@ -1,0 +1,386 @@
+ <!DOCTYPE html>
+<html xmlns:fb="https://www.facebook.com/2008/fbml">
+    <head>
+        <script type="text/javascript">
+            <!--
+            window.location = "http://" + window.location.host + "/paige.html#" + window.location.pathname;
+            //-->
+        </script>
+        <title>Paige</title>
+        <!--  for linked in login -->
+		
+		<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript" ></script>
+    </head>
+    <body text="black">
+    </script>
+    <div data-role="page" id="login" class="body_login center">
+        <div id="fb-root">
+        </div>
+        <script type="text/javascript">
+            
+            /*
+             
+             window.fbAsyncInit = function() {
+             FB.init({
+             appId      : '298346123542907',
+             status     : true,
+             cookie     : true,
+             xfbml      : true,
+             oauth      : true,
+             });
+             };
+             (function(d){
+             var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             d.getElementsByTagName('head')[0].appendChild(js);
+             }(document));
+             
+             */
+            /*	FB.login(function(response) {
+             if (response.authResponse) {
+             console.log('Welcome!  Fetching your information.... ');
+             FB.api('/me', function(response) {
+             alert(response.name);
+             console.log('Good to see you, ' + response.name + '.');
+             //  window.handle_session(JSON.parse(data.responseText)["X-SESSION_ID"]);
+             });
+             } else {
+             console.log('User cancelled login or did not fully authorize.');
+             }
+             });
+             
+             FB.logout(function(response) {
+             // user is now logged out
+             });
+             FB.getLoginStatus(function(response) {
+             if (response.status === 'connected') {
+             // the user is logged in and has authenticated your
+             // app, and response.authResponse supplies
+             // the user's ID, a valid access token, a signed
+             // request, and the time the access token
+             // and signed request each expire
+             window.handle_session(JSON.parse(data.responseText)["X-SESSION_ID"]);
+             var uid = response.authResponse.userID;
+             alert(uid);
+             var accessToken = response.authResponse.accessToken;
+             } else if (response.status === 'not_authorized') {
+             // the user is logged in to Facebook,
+             // but has not authenticated your app
+             } else {
+             // the user isn't logged in to Facebook.
+             }
+             });
+             // Additional initialization code here
+             };
+             // Load the SDK Asynchronously
+             (function(d){
+             var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             ref.parentNode.insertBefore(js, ref);
+             }(document));
+             //login code for facebook
+             (function(d, s, id) {
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) return;
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=298346123542907";
+             fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
+             */
+            $('#login').live('pagecreate', function(event){
+                //To prevent unwanted iterative calling:
+                $(this).unbind(event);
+                
+                // alternative logo if so configured
+                if (paigeSettings.conf.logo) {
+                    $('#paigelogo').attr('src', paigeSettings.conf.logo);
+                }
+                
+                $('#login div.ui-dialog-contain').removeClass('ui-overlay-shadow');
+                
+                $("#forgot").hide();
+                
+                $("#ForgotPass").live('click', function(){
+                    changePage("/demo/reset_pass.html");
+                  // $('#login').data('pageObj').newsub();
+                   
+                });
+                
+                $("#registClick").live('click', function(){
+                    changePage("/demo/register.html");
+                });
+                
+                
+                $("#welcome_tour").live('click', function(){
+                    changePage("/demo/Tour.html");
+                });
+                $("#loginuuid").live('change', function(){
+                    $("#loginpass").val("");
+                });
+                
+                
+                $("#li").live('click', function(){
+                    // alert("linked in");
+                    console.log("linked in clicked");
+                });
+                
+                
+                /*for google login*/
+                function openPopupWindow(){
+                    window.location(session.appServices + "login_openid?retpath=http://" + location.host + "/login_ret.html", 'openid_popup', 'width=790,height=580'); //open
+                }
+                
+                //hide Tour after login for Deal , and hide Tour b4 login/register for Deal
+                if (!paigeSettings.conf.hasTour) {
+                
+                    $("#welcome_tour").hide();
+                    $("#welcome_tour_left").hide();
+                    
+                    $(".get_register").hide();
+                }
+                else {
+                    $('#welcome_tour').show();
+                }
+                /* set this flag if you want to see only login...
+                 * and if you do't want to see any of facebook, google or linkedin options, register etc*/
+                if (!paigeSettings.conf.hasLoginOptions) {
+                    $(".login_options").hide();
+                    $("#or").hide();
+                    $("#for_register").hide();
+                }
+                //hide google login for Deal
+                if (!paigeSettings.conf.hasGoogleLogIn) {
+                    $("#googleLogin").hide();
+                }
+                //to be commented after it works
+                //Init the page's caches and renderers. (now in a closed namespace)
+                $('#login').live('pageshow', function(event){
+                
+                    // $('#welcome_tour').addClass('myObj');
+                    $('#welcome_tour').live('swipeleft', function(event){
+                        $(this).hide();
+                        changePage("/demo/Tour.html", "slide");
+                        
+                        return false;
+                    });
+                    
+                    // $('#loginuuid').val(localStorage['username']);
+                    // $('#loginpass').val((localStorage['password']));//'' + MD5
+                    $('#loginuuid').val($.cookie('u'));
+                    $('#loginpass').val($.cookie('p'));
+                    
+                    if ($.cookie('remember')) {
+                        $("#remember_box").attr('checked', true).checkboxradio("refresh");
+                    }
+                    else {
+                        $("#remember_box").attr('checked', false).checkboxradio("refresh");
+                        
+                    }
+                    
+                    header.render({
+                        title: "Example Page",
+                        hidden: "true"
+                    });//See paige_ui.js voor possible options/settings
+                    caches.showList("/login.html");
+                    
+                });
+                $('#login').live('pagehide', function(event){
+                    caches.hideList("/login.html");
+                });
+                var pageObj = {
+					newsub:  function(t) {
+						$('<div>').paigedialog({
+                        mode: 'button',
+                        transition: 'none',
+                        themeHeader: 'z',
+                        headerText: 'Forgot Password',
+                        width: '300px',
+                        buttonPrompt: 'Vul de naam van het gebruikte middel in:',
+                        placeholder: 'Naam van gebruikt middel',
+                        buttonInput: true,
+                        buttons: {
+                            'Bevestig': {
+                                click: function(){
+                                    if ($.mobile.sdLastInput) {
+                                        pageObj.types.push($.mobile.sdLastInput);
+                                        render();
+                                    }
+                                },
+                                theme: 'z',
+                                icon: false
+                            }
+                        }
+                    });
+					return false;
+				},
+					
+                    emAddress: undefined,
+                    classicLogin: function(){
+                    
+                        /*code for login from login_classic*/
+                        pageObj.emAddress = $('#loginuuid').val();
+                        console.log(pageObj.emAddress);//ok
+                        var passStr = '';
+                        if ($.cookie('remember') && $.cookie('p') != null) {
+                            passStr = $.cookie('p');
+                        }
+                        else {
+                            passStr = MD5($('#loginpass').val());
+                        }
+                        
+                        if ($('#remember_box').is(':checked')) {
+                            if ($.cookie('u') != $('#loginuuid').val()) {
+                                localStorage.clear();
+                            }
+                        }
+                        else {
+                            $.cookie('u', null);
+                            $.cookie('p', null);
+                            $.cookie('remember', null);
+                        }
+                        
+                        if ($.cookie('p') != $('#loginpass').val()) {
+                            passStr = MD5($('#loginpass').val());
+                        }
+                        
+                        $.mobile.showPageLoadingMsg();
+                        
+                        var IMEI = '';
+                        if (phoneGapAvailable) {
+                            //get Imei number!
+                            //console.log(device.uuid);
+                            IMEI = device.uuid;
+                        }
+                        $.Read({
+                            url: session.appServices + 'login',
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            data: {
+                                "uuid": '' + $('#loginuuid').val().toLowerCase(),
+                                "IMEI": IMEI,
+                                "pass": '' + passStr
+                            },
+                            200: function(data){
+                                console.log("received 200 ok on login.");
+								
+								
+								//console.log("You are loging in from  "+ geoplugin_countryName());
+                                if ($('#remember_box').is(':checked')) {
+                                    $.cookie('u', $('#loginuuid').val(), {
+                                        expires: 14
+                                    });
+                                    $.cookie('p', passStr, {
+                                        expires: 14
+                                    });
+                                    $.cookie('remember', true, {
+                                        expires: 14
+                                    });
+                                }
+                                
+                                $.mobile.hidePageLoadingMsg();
+                                window.handle_session(JSON.parse(data.responseText)["X-SESSION_ID"]);
+                                if (phoneGapAvailable && window.plugins.sense) {
+                                    window.plugins.sense.toggleMain(true, function(){
+                                        //TODO
+                                    }, function(){
+                                        //TODO
+                                    });
+                                    var username = $('#loginuuid').val();
+                                    var passwd = passStr;
+                                    window.plugins.sense.changeLogin(username, passwd, function(){
+                                        console.log("Successfully logged into Sense");
+                                    }, function(){
+                                        console.log("Failed to login into Sense");
+                                    });
+                                }
+                            },
+                            400: function(data){
+                                $.mobile.hidePageLoadingMsg();
+                                $('#forgot').show();
+                                localStorage['password'] = '';//
+                                //show forgot password button
+                                alert("Login failed: Please check your email or password");
+                            }
+                        });
+                        //alert("inside");
+                        return false;
+                        /*code for login_classic ends here */
+                    }
+                };
+                $(event.target).data("pageObj", pageObj);
+                params.load("/login.html", pageObj);
+            });
+        </script>
+        <div>
+            <!--
+            <div id="welcome_tour_left" class="myObj  ui-corner-top" style="background-color:#5C5D93;float:left; margin-top:20px;  margin-left:-20px;height:40px;width:150px;">
+            <p style=" margin-top:10px; font-weight:bold;">
+            <span style="color:#5C5D93;"></span>
+            </p>
+            </div> -->
+            <div id="welcome_tour" class="center ui-corner-bottom" style="background-color:white; top:0;float:right; right:-10px !important;position:fixed;height:40px;width:100px;">
+                <p style=" margin-top:10px; font-weight:bold;">
+                    <span style="color:black;">Preview?</span>
+                </p>
+            </div>
+            <!-- <div id="welcome_tour" class="myObj center ui-corner-top" style="background-color:white; float:right; margin-top:20px;  right:-12px !important;position:absolute;height:40px;width:140px;">
+            <p style=" margin-top:10px; font-weight:bold;">
+            <span style="color:black;">Preview?</span>
+            </p>
+            </div>-->
+            <br/>
+            <img id="paigelogo" src="js/Paige_ui/images/Logo_paige_L_white.png" alt="logo"/><!-- class="center-image" -->
+            <br/>
+            <br/>
+            <br/>
+            <form id='login_form' name="LoginForm" target='_self' method='POST' autocomplete='on' data-ajax="false" style="display:inline-block;" onsubmit="return $('#login').data('pageObj').classicLogin();">
+                <input type='text' class="uname" data-theme="d" name='uuid' style="width:197px;" id='loginuuid' placeholder='Enter your email address' required/><input type="password" class="pwd" data-theme="d" name='pass' style="width:197px;" id='loginpass' placeholder='Password' required/><!--  <div data-role="fieldcontain" style="margin-left:2px;width:197px;" > </div>
+                <fieldset data-role="controlgroup" style="width:margin-left:2px;196px;" > </fieldset> --><input type="checkbox" name="checker" id="remember_box" style="width:inherit;" data-theme="d" />
+                <label for="remember_box" style="border:0px">
+                    Remember me
+                </label>
+                <br/>
+                <input type="submit" id="login_btn" value='Login' style="font-color:black;margin-right:-10px;width:196px;" data-theme="d"/>
+                <br/>
+                <div id="forgot">
+                    <u id="ForgotPass" style="color:white;">
+                        Forgot your password?
+                    </u>
+                    <!--
+                    <a href="/demo/reset_pass.html" id="" style="text-decoration:underline;font-size:14px;color:white;">
+                    Forgot your password?
+                    </a>
+                    -->
+                </div>
+            </form>
+            <!--style="margin-bottom:-12px;margin-top:-6px;"-->
+            <br/>
+            <!-- login through  body_login-->
+            <p id="or" style="color:white;" class="login_options center">
+                Or you can login through:
+                <br/>
+            </p>
+            <div class="login_options" data-role="controlgroup" data-type="horizontal">
+                <!-- <span id='login'><a href="#" id='facebook-login' onclick=''><img src="../js/Paige_ui/images/facebook-logo_s.png" /></a></span>
+                <div class="fb-login-button"  src="https://www.facebook.com/dialog/oauth?client_id=298346123542907&redirect_uri=http://paige.ask-cs.com/Home.html">Login with Facebook</div>
+                --><a id="googleLogin" href="javascript:openPopupWindow();"><img src="js/Paige_ui/images/google_app_logo_s.png" alt="google"/></a>
+                <script type="IN/Login" data-onAuth="onLinkedInAuth">
+                    Hello, How are you 
+                    <?js= firstName ?>
+                    <?js= lastName ?>
+                    .
+                </script>
+            </div>
+            <div id="for_register" style="color:white;">
+                Or
+                <br/>
+                <span id="registClick" style="text-decoration:underline; color:white;">Register</span>
+            </div
+        </div>
+    </div>
+</body>
+</html>

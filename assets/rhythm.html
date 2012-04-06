@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ='http://' + window.location.host + '/paige.html#' + window.location.pathname;
+			//-->
+		</script>
+		<title>Moodie</title>
+	</head>
+	<body>
+	
+		<div data-role="page" id="moodieRhythm" data-theme="z">
+			<script>
+				$('#moodieRhythm').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+				
+					// TODO use datejs
+					var today = (Date.parse('today')).getTime() + 43200000; // noon
+					var date, key, val;
+					
+					var pageObj = {
+							
+						types: {
+							contact: {
+								title: 'Eerste contact',
+								pre: 'Uw eerste contact met een andere persoon was %d om',
+								post: '',
+							},
+							activity: {
+								title: 'Begonnen met dagactiviteit',
+								pre: 'U bent %d met uw dagactiviteit begonnen om',
+								post: '',
+							},
+							dinner: {
+								title: 'Avondeten',
+								pre: 'U heeft %d uw avondeten genuttigd om',
+								post: '',
+							},
+							event: {
+								title: 'Ingrijpende gebeurtenis',
+								pre: 'Er vond %d een ingrijpende gebeurtenis plaats om',
+								post: 'Vult u in waar het om ging, bijvoorbeeld een ruzie, een ruzie'
+									+ ' bijgelegd, een viering, of iets anders dat u beinvloed heeft.',
+							}
+						},
+						
+						prev: function(t) {
+							jump(date - 86400000);
+							clean(t);
+							render();
+							return false;
+						},
+						
+						now: function(t) {
+							jump(today);
+							clean(t);
+							render();
+							return false;
+						},
+						
+						next: function(t) {
+							jump(date + 86400000);
+							clean(t);
+							render();
+							return false;
+						}
+						
+					};
+					
+					$(event.target).data('pageObj', pageObj);
+					params.load('rhythm.html', pageObj);
+						
+					$('#moodieRhythm').live('pageshow', function(event) {
+						//caches.showList('/moodie/rhythm.html');
+						header.render({
+							title: 'Sociaal ritme'
+							, backUrl: 'javascript:goHome(1);'
+							, backLabel: 'Back'
+						});
+					
+						init();
+						render();
+					});
+					
+					$('#moodieRhythm').live('pagehide', function(event) {
+						//caches.hideList('/moodie/rhythm.html');
+					});
+					
+					// private
+					function init() {
+						var k, v, w;
+						jump(params.getParam('date', 'rhythm.html') || date || today);
+						if ( (k = params.getParam('key', 'rhythm.html'))
+						&& (v = params.getParam('val', 'rhythm.html')) ) {
+							val[k] = JSON.parse(v);
+							localStorage[key] = JSON.stringify(val);
+							w = $.extend({}, val[k]);
+							w.key = k;
+							
+							if (window.plugins.sense) {
+								window.plugins.sense.addDataPoint('rhythm', 'Sociaal Ritme', 'Moodie'
+								, 'json' , JSON.stringify(w)
+								, (new Date()).getTime()
+								, function() {
+									// success!
+									window.plugins.sense.flushBuffer(function() {}, function() {});
+								}, function() {
+									console.log('Failed to write data to Sense!');
+								});
+							}
+						}
+						params.clearParam();
+					}
+					
+					function jump(d) {
+						var k;
+						date = d;
+						key = 'moodieRhythm_' + new Date(d).toString('yyMMdd');
+						val = localStorage[key];
+						val = val ? JSON.parse(val) : {};
+						for (k in pageObj.types) {
+							val[k] = val[k] || { time: 0, remark: '' };
+						}
+					}
+					
+					function render() {
+						var l = $('#moodieRhythm #list');
+						l.empty();
+						l.append('<li data-role="list-divider">' + dutchDate(date) + '</li>');
+						$.each(pageObj.types, function(j, u) {
+							var a = $('<a href="#">')
+							.text(u.title)
+							.click(function(e) {
+								changePage('time.html', {
+									type: JSON.stringify(pageObj.types[j]),
+									date: date,
+									key: j,
+									val: JSON.stringify(val[j])
+								});
+								return false;
+							});
+							if (val[j].time || val[j].remark) {
+								a.append('<p class="ui-li-aside"><strong>'
+										+ (new Date(val[j].time).toString('HH:mm'))
+										+ '</strong></p>')
+							}
+							l.append($('<li>').append(a));
+						});
+						
+						var f = $('#moodieRhythm #foot');
+						if (date === today) {
+							f.find('#mid, #right').addClass('ui-disabled');
+						} else {
+							f.find('#mid, #right').removeClass('ui-disabled');
+						}
+						
+						l.listview('refresh');
+					}
+					
+					// TODO probably doing something wrong with navigation,
+					// this should not be necessary?
+					function clean(t) {
+						t.attr('class', t.attr('class').replace(/ui-btn-hover-./g, ''));
+					}
+				});
+
+			</script>
+			
+			<div data-role="content">
+				<ul id="list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="z">
+				</ul>
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+				<div class="ui-navbar">
+					<ul class="ui-grid-b" id="foot">
+						<li class="ui-block-a"><a id="left" data-theme="z" data-role="button" href="#" onclick="return $('#moodieRhythm').data('pageObj').prev($(this));"><img src="js/Paige_ui/images/Arrow_left_purple.png" /></a></li>
+						<li class="ui-block-b"><a id="mid" data-theme="z" data-role="button" href="#" onclick="return $('#moodieRhythm').data('pageObj').now($(this));"><img src="js/Paige_ui/images/Vandaag_wit.png" /></a></li>
+						<li class="ui-block-c"><a id="right" data-theme="z" data-role="button" href="#" onclick="return $('#moodieRhythm').data('pageObj').next($(this));"><img src="js/Paige_ui/images/Arrow_right_purple.png" /></a></li>
+					</ul>
+				</div>
+			</div>
+	</body>
+</html>

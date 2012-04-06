@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ='http://' + window.location.host + '/paige.html#' + window.location.pathname;
+			//-->
+		</script>
+		<title>Moodie</title>
+	</head>
+	<body>
+		<div data-role="page" id="moodieMain" data-theme="z">
+			<script>
+				$('#moodieMain').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+
+					var pageObj = {
+					
+						attack: function() {
+							var t = (new Date()).getTime();
+							pageObj.write(t, '');
+							
+							// TODO rewrite to use on() in stead of delegate()
+							$('<div>').paigedialog({
+								mode: 'button',
+								transition: 'none',
+								themeHeader: 'z',
+								headerText: 'Notitieruimte',
+								width: '300px',
+								buttonPrompt: 'Bedankt voor uw rapportage. Indien u nog een notitie wil maken kan dat hier:',
+								placeholder: 'Notities',
+								textarea: true,
+								buttonInput: true,
+								buttons: {
+									'OK': {
+										click: function() {
+											if ($.mobile.sdLastInput) {
+												pageObj.write(t, $.mobile.sdLastInput);
+											}
+										},
+										theme: 'z',
+										icon: false
+									}
+								}
+							});
+							return false;
+						},
+						
+						write: function(time, remark) {
+							var w = { time: time, remark: remark };
+							if (window.plugins.sense) {
+								window.plugins.sense.addDataPoint('attack', 'Aanval', 'Moodie'
+								, 'json' , JSON.stringify(w)
+								, time
+								, function() {
+									// success!
+									window.plugins.sense.flushBuffer(function() {}, function() {});
+								}, function() {
+									console.log('Failed to write data to Sense!');
+								});
+							}
+						}
+					
+					};
+					
+					$(event.target).data('pageObj', pageObj);
+					//params.load('/moodie/moodie.html', pageObj);
+					
+					$('#moodieMain').live('pageshow', function(event) {
+						header.render({
+							title: '<img src="js/Paige_ui/images/Moodie.png" class="title_icon" />'
+							,back: false
+						}); //See paige_ui.js voor possible options/settings
+						//caches.showList('/moodie/moodie.html');
+					});
+					$('#moodieMain').live('pagehide', function(event) {
+						//caches.hideList('/moodie/moodie.html');
+					});
+					
+				});
+
+			</script>
+			<div data-role="content">
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a href="emotion.html" data-role="button"><img src="images/Emotion.png" /><br />Emotie</a></div>
+					<div class="ui-block-b"><a href="rhythm.html" data-role="button"><img src="images/Rhythm.png" /><br />Ritme</a></div>
+					<div class="ui-block-a"><a href="recent.html" data-role="button"><img src="images/Recent.png" /><br />Metingen</a></div>
+					<div class="ui-block-b"><a href="substances.html" data-role="button"><img src="images/Substances.png" /><br />Middelen</a></div>
+				</div>
+				<br />
+				<a href="#" data-role="button" onclick="return $('#moodieMain').data('pageObj').attack();"><img src="images/Attack.png" /></a>
+			</div>
+		</div>
+	</body>
+</html>

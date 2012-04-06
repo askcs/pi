@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ='http://' + window.location.host + '/paige.html#' + window.location.pathname;
+			//-->
+		</script>
+		<title>Moodie</title>
+	</head>
+	<body>
+	
+		<div data-role="page" id="moodieEmotion" data-theme="z">
+			<script>
+				$('#moodieEmotion').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+				
+					var key = 'moodieEmotion_' + new Date().toString('yyMMdd')
+					, val = localStorage[key];
+					val = val ? JSON.parse(val) : null;
+				
+					var pageObj = {
+						confirm: function() {
+							val = $('#moodieEmotion #button').affectbutton('affect');
+							localStorage[key] = JSON.stringify(val);
+							
+							if (window.plugins.sense) {
+								window.plugins.sense.addDataPoint('emotion', 'Emotie', 'Moodie'
+								, 'json', JSON.stringify(val) , (new Date()).getTime()
+								, function() {
+									// success!
+									window.plugins.sense.flushBuffer(function() {}, function() {});
+								}, function() {
+									console.log('Failed to write data to Sense!');
+								});
+							}
+							
+							// TODO rewrite to use on() in stead of delegate()
+							$('<div>').paigedialog({
+								mode: 'button',
+								transition: 'none',
+								width: '300px',
+								buttonPrompt: 'Bedankt voor het rapporteren van uw emotie!',
+								buttons: {
+									'Sluit': {
+										click: function() {
+											goHome(1);
+										},
+										theme: 'z',
+										icon: false
+									}
+								}
+							});
+							return false;
+						}
+						, reset: function() {
+							$('#moodieEmotion #button').affectbutton('reset');
+							return false;
+						}
+					};
+					
+					$(event.target).data('pageObj', pageObj);
+					//params.load('/moodie/emotion.html', pageObj);
+					
+					$('#moodieEmotion #button').affectbutton();
+					$('#moodieEmotion').live('pageshow', function(event) {
+						header.render({
+							title: 'Emotie'
+							, backUrl: 'javascript:goHome(1)'
+							, backLabel: 'Back'
+						});
+					
+						//caches.showList('/moodie/emotion.html');
+						if (val) {
+							$('#moodieEmotion #button').affectbutton('affect', val);
+						} else {
+							$('#moodieEmotion #button').affectbutton('reset');
+						}
+					});
+					$('#moodieEmotion').live('pagehide', function(event) {
+						//caches.hideList('/moodie/emotion.html');
+						
+					});
+					
+				});
+
+			</script>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="z">
+					<li data-role="list-divider">Emotie</li>
+					<li><div>
+						Beweeg over de emoticon en bepaal wat je huidige emotie is. Bevestig je emotie hierna.<br /><br />
+						<div style="padding:0; width:262px; margin:0 auto;">
+							<canvas id="button" width="262px" height="262px" style="border:0; padding:0;">
+							(Canvas not supported!)
+							</canvas>
+						</div>
+						<a id="reset" href="#" data-role="button" data-theme="z" onclick="return $('#moodieEmotion').data('pageObj').reset();">Reset</a>
+						<br />
+						<a id="confirm" href="#" data-role="button" data-theme="z" onclick="return $('#moodieEmotion').data('pageObj').confirm();"><h3>Bevestig</h3></a>
+					</div></li>
+				</ul>
+			</div>
+	</body>
+</html>

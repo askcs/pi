@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ='http://' + window.location.host + '/paige.html#' + window.location.pathname;
+			//-->
+		</script>
+		<title>Moodie</title>
+	</head>
+	<body>
+	
+		<div data-role="page" id="moodieRecent" data-theme="z">
+			<script>
+				$('#moodieRecent').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+				
+					var pageObj = {
+					};
+					
+					$(event.target).data('pageObj', pageObj);
+					//params.load('/moodie/recent.html', pageObj);
+						
+					$('#moodieRecent').live('pageshow', function(event) {
+						//caches.showList('/moodie/recent.html');
+						header.render({
+							title: 'Laatste metingen'
+							, backUrl: 'javascript:goHome(1)'
+							, backLabel: 'Back'
+						});
+					
+					});
+					$('#moodieRecent').live('pagehide', function(event) {
+						//caches.hideList('/moodie/recent.html');
+						
+					});
+					
+				});
+
+			</script>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="z">
+					<li data-role="list-divider">Laatste metingen</li>
+					<li class="paige-li-has-thumb"><img src="images/Location_home.png" />Locatie: thuis</li>
+					<li class="paige-li-has-thumb"><img src="images/Activity_relax.png" />Inspanning: matig</li>
+					<li class="paige-li-has-thumb"><img src="js/images/glyphish/icons/194-note-2@2x.png" />Geluidsniveau: hoog</li>
+					<li class="paige-li-has-thumb"><img src="images/Connected_low.png" />Contact: weinig</li>
+					<li class="paige-li-has-thumb"><img src="images/Sleep.png" />Uren slaap: 10</li>
+					<li class="paige-li-has-thumb"><img src="js/images/glyphish/icons/51-outlet@2x.png" />29 Maart 15:55</li>
+					<li class="paige-li-has-thumb"><img src="js/images/glyphish/icons/184-warning@2x.png" />27 Maart 14:44</li>
+				</ul>
+			</div>
+	</body>
+</html>

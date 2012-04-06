@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ='http://' + window.location.host + '/paige.html#' + window.location.pathname;
+			//-->
+		</script>
+		<title>Moodie</title>
+	</head>
+	<body>
+	
+		<div data-role="page" id="moodieTime" data-theme="z">
+			<script>
+				$('#moodieTime').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+					
+					
+					var type, date, key, val;
+					
+					var pageObj = {
+							
+						confirm: function() {
+							var c = $('#moodieTime'),
+								h = c.find('div.askWheel_inner[data-field=hours]').text(),
+								m = c.find('div.askWheel_inner[data-field=minutes]').text(),
+								d = new Date(date);
+							d.setHours(h);
+							d.setMinutes(m);
+							val.remark = c.find('#remark').val();
+							val.time = d.getTime();
+							changePage('rhythm.html', {
+								date: date,
+								key: key,
+								val: JSON.stringify(val),
+							}, 0, 1);
+							return false;
+						},
+						
+						// TODO private functions?
+						init: function() {
+							type = JSON.parse(params.getParam('type', 'time.html'));
+							date = params.getParam('date', 'time.html');
+							key = params.getParam('key', 'time.html');
+							val = JSON.parse(params.getParam('val', 'time.html'));
+						},
+						
+						render: function() {
+							var d = val.time ? new Date(val.time) : new Date(),
+							c = $('#moodieTime');
+							c.find('#title').html(type.title);
+							c.find('#pre').html(type.pre.replace(/%d/g, dutchDate(date)));
+							c.find('.askWheel[data-field=hours]').askWheel({
+								to : 23,
+								init : d.getHours(),
+							});
+							c.find('.askWheel[data-field=minutes]').askWheel({
+								to : 59,
+								init : d.getMinutes(),
+							});
+							c.find('#post').html(type.post);
+							c.find('#list').listview('refresh');
+							var t = $('#moodieTime textarea');
+							t.css('maxWidth', t.width());
+							t.val(val.remark);
+						}
+						
+						
+					};
+					
+					$(event.target).data('pageObj', pageObj);
+					params.load('time.html', pageObj);
+					
+					$('#moodieTime').live('pageshow', function(event) {
+						//caches.showList('/moodie/rhythm.html');
+						header.render({
+							title: 'Sociaal ritme'
+							, backUrl: 'javascript:history.back()'
+							, backLabel: 'Back'
+						});
+						pageObj.init();
+						pageObj.render();
+					});
+					
+					$('#moodieTime').live('pagehide', function(event) {
+						//caches.hideList('/moodie/rhythm.html');
+					});
+					
+				});
+
+			</script>
+			
+			<div data-role="content">
+				<ul id="list" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="z">
+					<li id="title" data-role="list-divider"></li>
+					<li><div>
+						<p id="pre" class="listp"></p>
+						<div style="margin: 0 auto; width:120px; font-size:14pt;">
+							<div class="askWheel" data-field="hours"></div>
+							<div class="askWheel" data-field="minutes"></div>
+						</div>
+						<p id="post" class="listp"></p>
+						<textarea id="remark" data-theme="d" style="height:120px; border-color:#000;" placeholder="Notities"></textarea>
+						<a data-role="button" data-theme="z" onclick="return $('#moodieTime').data('pageObj').confirm();"><h3>Bevestig</h3></a>
+					</div></li>
+				</ul>
+			</div>
+			
+	</body>
+</html>

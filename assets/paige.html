@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			var start=new Date();
+		</script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="js/images/favicon.ico" rel="icon">
+		<link href="js/images/favicon.ico" rel="apple-touch-icon-precomposed">
+		<link href="js/images/favicon.ico" rel="apple-touch-startup-image">
+		<title>Moodie</title>
+		
+		<link rel='stylesheet' href='js/libs/jquery.mobile-1.1.0-rc.1.min.css'></link>
+
+		
+		<link rel="stylesheet" type="text/css" href="js/libs/jquery.mobile.simpledialog.min.css" />
+
+		<script src='js/libs/jquery-1.7.1.min.js'></script>
+		<script src='js/Paige_phone/cordova-1.5.0.js'></script>
+		<script src='js/Paige_phone/phonegap-toast.js'></script>
+		<script src='js/Paige_phone/pee_plugin.js'></script>
+		<script src='js/Paige_phone/sense_platform.js'></script>
+		<script src='js/Paige_phone/IntentJS.js'></script>
+		<script src='js/Paige_phone/WebView.js'></script>
+		<script src='js/Paige_phone/SystemNotification.js'></script>
+		<script src='js/Paige_phone/paige_phonegap.js'></script>
+		<script src='js/libs/date.js'></script>
+		<script src='js/libs/json2.js'></script>
+		<script src='js/libs/jquery.rest.min.js'></script>
+		<script>
+			//Needs to be done before loading of jquery.mobile.js
+			//Disables some less grownup features of JQuery mobile.
+			$(document).bind("mobileinit", function() {
+				$.extend($.mobile, {
+					defaultPageTransition : 'none',
+					pushStateEnabled : false
+				});
+				//$.mobile.page.prototype.options.degradeInputs.date = true;
+				
+				
+			});
+			//Neat little trick to abort outstanding AJAX calls!
+			$.xhrPool = [];
+			$.xhrPool.abortAll = function() {
+				this.map(function(jqXHR) {
+					jqXHR.abort();
+				});
+			};
+			$.ajaxSetup({
+				beforeSend : function(jqXHR) {
+					$.xhrPool.push(jqXHR);
+				}
+			});
+			
+			$('.ui-page').live('pagecreate', function() {
+				// probably the wrong place for this...?
+				// replace delete icon with check icon in all select menu dialogs
+				$('div.ui-selectmenu span.ui-icon-delete').each(function() {
+					$(this).removeClass('ui-icon-delete');
+					$(this).addClass('ui-icon-check');
+				});
+				
+				// prevent fixed footer from hiding
+				$('[data-role=footer]').fixedtoolbar({ tapToggle:false }).show();
+				
+				// don't do rounded corners in footer buttons
+				$('[data-role=footer]').find('a.ui-btn-corner-all').removeClass('ui-btn-corner-all');
+				
+				// prevent any sideeffects of events we don't use
+				$(this).on('dblclick selectstart', false);
+				
+				
+				// on page hide collapse toolbar (if it is visible)
+				/*$(this).live('pagehide', function() {
+					if ($('#paigeHeadBar:visible').length) {
+						$('#headerPage').data('pageObj').toggle_tongue();
+					}
+				});*/
+			});
+			
+			
+			
+		</script>
+		<script src='js/libs/jquery.mobile-1.1.0-rc.1.min.js'></script>
+		
+
+		<script type="text/javascript" src="js/libs/jquery.mobile.simpledialog2.min.js"></script>
+		<script type="text/javascript" src="js/Paige_ui/jquery.ui.paigedialog.js"></script>
+
+		<script src="js/libs/jquery.i18n.properties-1.0.9.js"></script>
+		<script src='js/Paige_core/paige.js'></script>
+		<script src='js/Paige_offline/askREST_cache.js'></script>
+		<script src='js/Paige_ui/pure.js'></script>
+		<script src='js/Paige_ui/Paige_ui.js'></script>
+		<script src='js/Paige_ui/jquery.intinput.js'></script>
+		<link rel="stylesheet" type="text/css" href="js/Paige_ui/jquery.intinput.css" />
+		<script src="js/Paige_ui/jquery.ui.affectbutton.js"></script>
+		<script src="js/Paige_ui/jquery.ui.affectbutton.mobile.js"></script>
+			
+		<script src='js/Paige_core/modules.js'></script>
+		<script src='js/Paige_core/settings.js'></script>
+		<script src='js/libs/jquery.cookie.js'></script>
+		<script>
+			if( typeof $.getUrlVar('paigeProfile') != "undefined" && typeof paigeProfiles[$.getUrlVar('paigeProfile')] != "undefined") {
+				paigeSettings.setConf(paigeProfiles[$.getUrlVar('paigeProfile')]);
+			}
+			if(window.location.href.split('?X-SESSION_ID=')[1]) {
+				handle_session(window.location.href.split('?X-SESSION_ID=')[1]);
+			}
+			$.mobile.page.prototype.options.domCache = true;
+
+			function toggleSize() {
+				if($(".body").width() >= window.innerWidth - 21) {
+					$(".body").height("480px").width("300px");
+				} else {
+					$(".body").height(window.innerHeight - 40).width(window.innerWidth - 20);
+				}
+			}
+
+			function loadPages() {
+				$(".body").height(window.innerHeight - 40).width(window.innerWidth - 20);
+				//if (window.innerWidth > 400){ $("#demoButton").css("display","block"); }
+				//toggleSize();
+				$.mobile.loadPage("core/headerPage.html",{pageContainer:$("#gen_container")}).done(function(){
+					console.log($.mobile.activePage);
+					$('#headerPage').show();
+				});
+				paigeSettings.conf.modules.map(function(module) {
+					paigeSettings.getModule(module).load();
+				});
+				$('head').append('<link rel=\'stylesheet\' href=\'' + paigeSettings.conf.css + '\' />');
+
+				$.mobile.pageContainer.bind('pagechange', function() {
+					if(!session.isSession()) {
+						session.loading = false;
+						session.authenticator();
+						return false;
+					}
+				});
+				if(checkLogin() && (window.location.hash == "" || window.location.hash == "#")) {
+					//paige.say("I'm opening the first page!");
+					goHome(0, 1);
+				}
+			}
+
+			function checkLogin() {
+				if(!session.isSession()) {
+					session.loading = false;
+					session.authenticator();
+					var end = new Date();
+					alert("Loading took: "+(end.getTime()-start.getTime()));
+					return false;
+				}
+				return true;
+			}
+
+			function getSenseData() {
+				if(phoneGapAvailable) {
+					console.log("getting sense data!");
+					window.plugins.sense.getData("position", function(json) {
+						console.log(json);
+					}, function() {
+						console.log("failed to get data")
+					});
+				} else {
+					console.log("No phoneGapAvailable.");
+				}
+			}
+			
+			if(typeof paigeSettings.conf.lang == "undefined"){
+				loadBundles('en');
+			}else{
+				loadBundles(paigeSettings.conf.lang);
+			}
+			
+
+		</script>
+	</head>
+	<body onLoad="loadPages()">
+		<div class="background"></div>
+		<div id="gen_container" class="genContainer">
+		</div>
+		<div id="mod_container" class="myContainer">
+			<div id="paige" data-role="page" data-theme="z">
+				<div data-role="contents">
+					<br /><br />
+					<div style="width:150px; margin: 0 auto;">
+					<p>Loading...
+					<a href="javascript:goHome(0, 1)" rel="external" data-role="button">click here</a>
+					if nothing happens.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

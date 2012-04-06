@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ='http://' + window.location.host + '/paige.html#' + window.location.pathname;
+			//-->
+		</script>
+		<title>Moodie</title>
+	</head>
+	<body>
+	
+		<div data-role="page" id="moodieSubstances" data-theme="z">
+			<script>
+				$('#moodieSubstances').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+					
+					// TODO use datejs
+					var today = (Date.parse('today')).getTime() + 43200000; // noon
+					var date, key, val;
+					
+					var pageObj = {
+							
+						types: null, // initialized below
+						
+						prev: function(t) {
+							jump(date - 86400000);
+							clean(t);
+							render();
+							return false;
+						},
+						
+						now: function(t) {
+							jump(today);
+							clean(t);
+							render();
+							return false;
+						},
+						
+						next: function(t) {
+							jump(date + 86400000);
+							clean(t);
+							render();
+							return false;
+						},
+						
+						newsub: function(t) {
+							// TODO rewrite to use on() in stead of delegate()
+							$('<div>').paigedialog({
+								mode: 'button',
+								transition: 'none',
+								themeHeader: 'z',
+								headerText: 'Nieuwe inname',
+								width: '300px',
+								buttonPrompt: 'Vul de naam van het gebruikte middel in:',
+								placeholder: 'Naam van gebruikt middel',
+								buttonInput: true,
+								buttons: {
+									'Bevestig': {
+										click: function() {
+											if ($.mobile.sdLastInput) {
+												pageObj.types.push($.mobile.sdLastInput);
+												render();
+											}
+										},
+										theme: 'z',
+										icon: false
+									}
+								}
+							});
+							return false;
+						}
+						
+					};
+					
+					$(event.target).data('pageObj', pageObj);
+					params.load('substances.html', pageObj);
+					
+				
+					$('#moodieSubstances').live('pageshow', function(event) {
+						//caches.showList('/moodie/substances.html');
+						header.render({
+							title: 'Gebruikte middelen'
+							, backUrl: 'javascript:goHome(1);'
+							, backLabel: 'Back'
+						});
+						init();
+						render();
+					});
+					
+					$('#moodieSubstances').live('pagehide', function(event) {
+						//caches.hideList('/moodie/substances.html');
+					});
+					
+					// private
+					function init() {
+						var k, v;
+						pageObj.types = ['Eenheden alcohol', 'Kopjes koffie', 'Joints'];
+						for (d = 15; d-- > 0; ) {
+							k = 'moodieSubstances_' + new Date(today - d * 86400000).toString('yyMMdd');
+							v = localStorage[k];
+							v = v ? JSON.parse(v) : {};
+							for (k in v) {
+								if (v[k].time && $.inArray(k, pageObj.types) < 0) {
+									pageObj.types.push(k);
+								}
+							}
+						}
+						jump(params.getParam('date', 'substances.html') || date || today);
+						params.clearParam();
+					}
+					
+					function jump(d) {
+						var k;
+						date = d;
+						key = 'moodieSubstances_' + new Date(d).toString('yyMMdd');
+						val = localStorage[key];
+						val = val ? JSON.parse(val) : {};
+						$.each(pageObj.types, function(j, k) {
+							val[k] = val[k] || {time: 0, count: 0};
+						});
+					}
+					
+					function render() {
+						var l = $('#moodieSubstances #list'), w;
+						l.empty();
+						l.append('<li data-role="list-divider">' + dutchDate(date) + '</li>');
+						$.each(pageObj.types, function(j, k) {
+							var i = $('<li>').intinput({
+								value: val[k] && val[k].time ? val[k].count : null,
+								label: k
+							});
+							l.append(i);
+							i.on('intinput', function(e, v) {
+								val[k] = {
+									time: (new Date()).getTime(),
+									count: v
+								};
+								localStorage[key] = JSON.stringify(val);
+								
+								w = $.extend({}, val[k]);
+								w.key = k;
+								if (window.plugins.sense) {
+									window.plugins.sense.addDataPoint('substance', 'Middelen', 'Moodie'
+									, 'json', JSON.stringify(w)
+									, (new Date()).getTime()
+									, function() {
+										// success!
+										window.plugins.sense.flushBuffer(function() {}, function() {});
+									}, function() {
+										console.log('Failed to write data to Sense!');
+									});
+								}
+								
+							});
+						});
+						l.append('<li><a id="new" href="#" onclick="return $(\'#moodieSubstances\').data(\'pageObj\').newsub();">Nieuw ...</a></li>');
+						// TODO dialog
+						
+						var f = $('#moodieSubstances #foot');
+						if (date === today) {
+							f.find('#mid, #right').addClass('ui-disabled');
+						} else {
+							f.find('#mid, #right').removeClass('ui-disabled');
+						}
+						if (date === today - 7 * 86400000) {
+							f.find('#left').addClass('ui-disabled');
+						} else {
+							f.find('#left').removeClass('ui-disabled');
+						}
+						
+						l.listview('refresh');
+					}
+					
+					// TODO probably doing something wrong with navigation,
+					// this should not be necessary?
+					function clean(t) {
+						t.attr('class', t.attr('class').replace(/ui-btn-hover-./g, ''));
+					}
+				});
+
+			</script>
+			
+			<div data-role="content">
+				<ul id="list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="z">
+				</ul>
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+				<div class="ui-navbar">
+					<ul class="ui-grid-b" id="foot">
+						<li class="ui-block-a"><a id="left" data-theme="z" data-role="button" href="#" onclick="return $('#moodieSubstances').data('pageObj').prev($(this));"><img src="js/Paige_ui/images/Arrow_left_purple.png" /></a></li>
+						<li class="ui-block-b"><a id="mid" data-theme="z" data-role="button" href="#" onclick="return $('#moodieSubstances').data('pageObj').now($(this));"><img src="js/Paige_ui/images/Vandaag_wit.png" /></a></li>
+						<li class="ui-block-c"><a id="right" data-theme="z" data-role="button" href="#" onclick="return $('#moodieSubstances').data('pageObj').next($(this));"><img src="js/Paige_ui/images/Arrow_right_purple.png" /></a></li>
+					</ul>
+				</div>
+			</div>
+	</body>
+</html>
