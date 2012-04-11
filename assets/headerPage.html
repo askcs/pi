@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+			<!--
+			window.location ="http://" + window.location.host + "/paige.html#" + window.location.pathname;
+			//-->
+		</script>
+	</head>
+	<body>
+		<div id="headerPage" data-role="page" style="position:relative !important;min-height:0px !important">
+			<script>
+						
+				$('#headerPage').live('pagecreate', function(event) {
+					//To prevent unwanted iterative calling:
+					$(this).unbind(event);
+
+					paige.dialogBox = $(".chatBox");
+					paige.init();
+					paige.say("Hi, welcome");
+
+					var pageObj = {
+						"toggle_tongue" : function() {
+							$(".paige_tongue").slideToggle(200);
+							$(".paige_eugnot").slideToggle(200);
+							$(".paige_bar").slideToggle(200);
+						}
+					};
+					header.init(pageObj);
+					$("#logOffButton").delegate(null,"vclick click",function(event){
+						event.preventDefault();
+						session.logoff();
+						return false;
+					})
+					$(event.target).data("pageObj", pageObj);
+					params.load("/headerPage.html", pageObj);
+					
+					$('#paigeHeadBar').click(function(e) {
+						pageObj.toggle_tongue();
+					});
+				});
+
+			</script>
+			<div id="paigeHeader" data-role="header"></div>
+			<div class="tongue_wrapper">
+				<div class="paige_tongue headerShadow"></div>
+				<div class="paige_eugnot paige_hide"></div>
+			</div>
+			<div id="paigeHeadBar" data-role="navbar" class="paige_bar paige_hide" >
+				<ul class="headerShadow">
+					<li>
+						<a href="javascript:goHome();" data-theme="a">Home</a>
+					</li>
+					<li>
+						<a href="javascript:location.reload(true)" data-theme="a">Refresh</a>
+					</li>
+					<li>
+						<a id="module_setting_button" href="" data-theme="a">Settings</a>
+					</li>
+					<li>
+						<a href="#" data-theme="a">Help</a>
+					</li>
+					<li>
+						<a id="logOffButton" rel="external" href="about:blank" data-theme="a">Logout</a>
+					</li>
+				</ul>
+				<div id="filler"></div>
+			</div>
+			<div id="paigeChatBox" class="chatBox ui-shadow rounded_corners center paige_hide">Init text</div>
+			<div id="paigeInbox"></div>
+			<div id="paigeHeader_data" data-role="newdata" data-theme="z" data-position="inline" class="paigeHeader headerShadow">
+				<div data-role="none" class="paige_buttons">
+				<a id="backButton" href="#" data-role="none" class="paige_back"></a>
+				<!--<a id="menuButton" href="" data-role="none" class="paige_menu"></a>-->
+				</div>
+				<h1></h1>
+				<a id="paigeButton" href="#" data-role="none" class="ui-btn-right" style="top:5px;">
+					<div class="paige_msgCount paige_hide">2</div>
+					<img src="js/Paige_ui/images/Paige_i_icon.png" alt="Messages here"/>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>

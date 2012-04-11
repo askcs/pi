@@ -14,6 +14,11 @@
 				$('#moodieMain').live('pagecreate', function(event) {
 					//To prevent unwanted iterative calling:
 					$(this).unbind(event);
+				
+					$('#emotion, #rhythm').bind('vclick', function(event) {
+						changePage($(this).attr('id')+'.html');
+						return false;
+					});
 
 					var pageObj = {
 					
@@ -83,8 +88,8 @@
 			</script>
 			<div data-role="content">
 				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="emotion.html" data-role="button"><img src="images/Emotion.png" /><br />Emotie</a></div>
-					<div class="ui-block-b"><a href="rhythm.html" data-role="button"><img src="images/Rhythm.png" /><br />Ritme</a></div>
+					<div class="ui-block-a"><a id="emotion" href="#" data-role="button"><img src="images/Emotion.png" /><br />Emotie</a></div>
+					<div class="ui-block-b"><a id="rhythm" href="#" data-role="button"><img src="images/Rhythm.png" /><br />Ritme</a></div>
 					<div class="ui-block-a"><a href="recent.html" data-role="button"><img src="images/Recent.png" /><br />Metingen</a></div>
 					<div class="ui-block-b"><a href="substances.html" data-role="button"><img src="images/Substances.png" /><br />Middelen</a></div>
 				</div>
