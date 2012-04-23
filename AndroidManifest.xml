@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.ask.paige.moodie"
-    android:versionCode="20120419"
-    android:versionName="1.0.1" >
+    android:versionCode="20120423"
+    android:versionName="1.0.3" >
 
     <permission
         android:name="nl.ask.paige.moodie.permission.C2D_MESSAGE"
@@ -174,8 +174,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </receiver>
-        <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
+        </receiver>        
         <receiver android:name="nl.sense_os.service.NetworkMonitor" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
