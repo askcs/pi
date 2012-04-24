@@ -5,7 +5,7 @@
     <string name="app_name">Moodie</string>    
 
     <!-- URL FOR WEB VIEW CONTENT -->
-		<string name="app_url">file:///android_asset/paige.html</string>
+		<string name="app_url">http://moodie.mayask.me</string>
 <!--     <string name="app_url">http://10.200.200.117:8889</string> -->
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
