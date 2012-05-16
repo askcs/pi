@@ -29,4 +29,15 @@
     <string name="stat_notify_content_off_loggedout">Service inactief, geen verbinding met server</string>
     <string name="stat_notify_content_on_loggedin">"Service actief, ingelogd als \'%s\'"</string>
     <string name="stat_notify_content_on_loggedout">Service actief, geen verbinding met server</string>
+    
+    <!-- URBAN AIRSHIP PROPERTIES (FOR PUSH MESSAGES) -->
+    <string name="urban_airship_c2dmsender">marcoslacoste.test@gmail.com</string>
+    <string name="urban_airship_transport">c2dm</string>
+    <string name="urban_airship_development_app_key">d7JWPqtmQl6P44WG5ckUhA</string>
+    <string name="urban_airship_development_app_secret">xcQDEMRoSlStQlX_lADmcA</string>
+    <string name="urban_airship_production_app_key"></string>
+    <string name="urban_airship_production_app_secret"></string>
+    <string name="urban_airship_in_production">false</string>
+    <string name="urban_airship_iap_enabled">false</string>
+    
 </resources>
