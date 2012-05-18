@@ -8,7 +8,7 @@ Application: "FIQS Driving Application (Testing)"
 - Android Package: 			nl.rotterdam_cs.fiqs_test
 - Master Account Address: 	marcoslacoste.test@gmail.com
 - Master Account Password:  lacoste1984
-- C2DM Authorization Token: DQAAANAAAAB1pyQjjBs_LFjJvck4pUYfbc6Uwcy9foFVHUxDk0q9JdKk8BCed_DYvfIbpDbnHeth9xBVvVlei9NeDpzTsdkr-PAO3gfOwZOtnB9v7n68iMHD0RboPkmR_K8fn9q44I91qjuR570kHQ4i-xx-RtlSDexWPv0Lt4zL-IjPcnjy_cwmvJb9Y4jXoiQz9Z-7K93jlFan90dHFPbH21oD0HbL9HA6sbQfAjpi0qReHpLvzm7pJsrprKIi_4Cvk4VwjihQXolMNLA5yrkbzVKbdi7p
+- C2DM Authorization Token: DQAAANAAAACqnzsy188ItK9GNPG1Lmn0zqSVrESa4avi43mjKyL6RGeMV2bB-jHaSkLAdqE3JgutKA402llKybvi5YX5ZJHybGyZUkWqTQUFDxjDv3WX5lvf3--v-G_PqgAERpXn7VaG79OeQbiKRFKJjYtFt4kVgC5PsrqWAl70BD0HHB7PwSYWMRtv3X8BXvyh9WEjf-A5Rp-FAjQZKE6D6d-zMoGA-u3TSbYP0Ln8kOWkANr0Rq048hgVxByE_FD4VMu1O8N9eMtj3zk-oP8sB01KwUpg
  
 
 Configuration (Already available in string.testing and string.production files)
