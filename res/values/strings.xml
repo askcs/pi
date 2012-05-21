@@ -5,7 +5,7 @@
     <string name="app_name">Moodie</string>    
 
     <!-- URL FOR WEB VIEW CONTENT -->
-		<string name="app_url">http://moodie.myask.me</string>
+		<string name="app_url">http://diemoo.myask.me/paige.html</string>
 <!--     <string name="app_url">http://10.200.200.117:8889</string> -->
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
@@ -26,5 +26,7 @@
     <string name="stat_notify_content_off_loggedout">Meting gestopt, geen verbinding met server</string>
     <string name="stat_notify_content_on_loggedin">"Meting actief, ingelogd als \'%s\'"</string>
     <string name="stat_notify_content_on_loggedout">Meting actief, geen verbinding met server</string>
+    <string name="stat_notify_new_messages">Er is een nieuw bericht van Moodie</string>
+    <string name="stat_notify_priority">Er is een belangrijk bericht van Moodie!</string>
 
 </resources>
