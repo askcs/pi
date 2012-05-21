@@ -74,6 +74,6 @@
     <!--  Push Messages plugn (Urban Airship) -->
     <plugin
         name="PushNotificationPlugin"
-        value="nl.rotterdam_cs.fiqs_test.PushNotificationPlugin" />
+        value="nl.rotterdam_cs.fiqs.PushNotificationPlugin" />
     
 </plugins>
