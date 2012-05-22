@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.rotterdam_cs.fiqs_test"
-    android:versionCode="20120410"
-    android:versionName="2.1.2 testing" >
+    android:versionCode="20120522"
+    android:versionName="2.1.3 testing" >
 
     <uses-feature
         android:name="android.hardware.location.gps"
