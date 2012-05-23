@@ -37,8 +37,8 @@
     <!-- URBAN AIRSHIP PROPERTIES (FOR PUSH MESSAGES) -->
     <string name="urban_airship_c2dmsender">marcoslacoste.test@gmail.com</string>
     <string name="urban_airship_transport">c2dm</string>
-    <string name="urban_airship_development_app_key">d7JWPqtmQl6P44WG5ckUhA</string>
-    <string name="urban_airship_development_app_secret">xcQDEMRoSlStQlX_lADmcA</string>
+    <string name="urban_airship_development_app_key"></string>
+    <string name="urban_airship_development_app_secret"></string>
     <string name="urban_airship_production_app_key">h5GZdb_sRpuxxbaHa-Dt_A</string>
     <string name="urban_airship_production_app_secret">R1IbR7ptQfG0vXalLt6Tyw</string>
     <string name="urban_airship_in_production">true</string>
