@@ -43,4 +43,10 @@
     <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string>
     <string name="stat_notify_content_on_loggedout">Sensors active, no connection to CommonSense</string>
 
+	<string name="dialog_connectivity_msg">Internet connection unavailable! Please try again later.</string>
+   	<string name="menu_title_settings">Settings</string>
+   	<string name="menu_title_refresh">Refresh</string>
+   	<string name="stat_notify_new_messages">You have new messages</string>
+   	<string name="stat_notify_priority">High priority message</string>
+   	<string name="hello">Hello</string>
 </resources>
