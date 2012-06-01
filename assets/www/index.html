@@ -41,7 +41,18 @@
 			}
 			
 			runDiscovery = function(){
-				window.plugins.UPNP_Plugin.runDiscovery(["urn:schemas-upnp-org:device:CHAP:1","CHAP"]);
+				window.plugins.UPNP_Plugin.runDiscovery(["urn:schemas-upnp-org:device:CHAP:1"]);
+				
+				window.plugins.UPNP_Plugin.listDevices(function(res){
+					console.log(res[0].root.device.UDN);
+					
+					//window.plugins.UPNP_Plugin.runAction(res[0].root.)
+					
+					window.plugins.UPNP_Plugin.getDescription(res[0].baseURL.replace("/ddd.xml","")+res[0].root.device.serviceList.service.SCPDURL,function(r){
+						console.log(r.scpd.actionList.action.name);
+					});
+				});
+				
 			}
 		</script>
 	</head>

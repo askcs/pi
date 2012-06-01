@@ -39,6 +39,20 @@ UPNP_Plugin.prototype.runDiscovery = function(types){
 	return PhoneGap.exec(null,null, 'UPNP_Plugin', 'runDiscovery', types);
 }
 
+UPNP_Plugin.prototype.listDevices = function(callback){
+	console.log("listDevices");
+	return PhoneGap.exec(callback,null, 'UPNP_Plugin', 'listDevices', []);
+}
+
+UPNP_Plugin.prototype.getDescription = function(url,callback){
+	console.log("getDescription");
+	return PhoneGap.exec(callback,null, 'UPNP_Plugin', 'getDescription', [url]);
+}
+UPNP_Plugin.prototype.runAction = function(url,action,service,callback){
+	console.log("runAction");
+	return PhoneGap.exec(callback,null, 'UPNP_Plugin', 'runAction', [url,action,service]);
+}
+
 PhoneGap.addConstructor(function() {
     try {
         PhoneGap.addPlugin("UPNP_Plugin", new UPNP_Plugin());
