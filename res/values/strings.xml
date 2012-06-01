@@ -2,15 +2,14 @@
 <resources>
 
     <!-- MAIN APP NAME -->
-    <string name="app_name">Paige</string>
+    <string name="app_name">Bridge Paige</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Sense Platform</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-    <!-- <string name="app_url">http://10.200.200.148:8889</string> -->
-    <string name="app_url">http://paige.ask-cs.com</string>
-
+    <string name="app_url">file:///android_asset/www/index.html</string>
+	
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.app.SenseApp</string>
     <string name="action_sense_settings">nl.ask.paige.app.SenseSettings</string>

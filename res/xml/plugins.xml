@@ -36,7 +36,10 @@
     <plugin
         name="PeePlugin"
         value="nl.ask.paige.plugin.PeePlugin" />
-
+    <plugin
+        name="UPNP_Plugin"
+        value="nl.ask.paige.plugin.UPNP_Plugin" />
+    
     <!-- Sense plugin -->
     <plugin
         name="SensePlatform"
