@@ -45,8 +45,10 @@
 				
 				window.plugins.UPNP_Plugin.listDevices(function(res){
 					console.log(res[0].root.device.UDN);
-					
-					//window.plugins.UPNP_Plugin.runAction(res[0].root.)
+					controlURL = res[0].baseURL.replace("/ddd.xml","")+res[0].root.device.serviceList.service.controlURL; 
+					window.plugins.UPNP_Plugin.runAction(controlURL,"urn:upnp-org:serviceId:chap","getIMEI",function(r){
+						console.log("imei result: "+r.IMEI);
+					});
 					
 					window.plugins.UPNP_Plugin.getDescription(res[0].baseURL.replace("/ddd.xml","")+res[0].root.device.serviceList.service.SCPDURL,function(r){
 						console.log(r.scpd.actionList.action.name);
