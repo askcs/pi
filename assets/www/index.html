@@ -9,7 +9,7 @@
 			document.addEventListener('deviceready', function() {
 				console.log("phoneGapAvailable to True!");
 				phoneGapAvailable = true;
-				window.plugins.UPNP_Plugin.initUPNP('UniqueID(Paige1)','Paige Device 1');
+				window.plugins.UPNP_Plugin.initUPNP('UniqueID(Paige1,'+device.uuid+')','Paige Device '+device.uuid);
 				window.plugins.UPNP_Plugin.registerStateVar('IMEI',[]);
 				window.plugins.UPNP_Plugin.registerAction('getIMEI',false,['IMEI'],[]);
 			});
@@ -47,10 +47,12 @@
 					console.log(res[0].root.device.UDN);
 					controlURL = res[0].baseURL.replace("/ddd.xml","")+res[0].root.device.serviceList.service.controlURL; 
 					window.plugins.UPNP_Plugin.runAction(controlURL,"urn:upnp-org:serviceId:chap","getIMEI",function(r){
+						console.log(JSON.stringify(r));
 						console.log("imei result: "+r.IMEI);
 					});
 					
 					window.plugins.UPNP_Plugin.getDescription(res[0].baseURL.replace("/ddd.xml","")+res[0].root.device.serviceList.service.SCPDURL,function(r){
+						console.log(JSON.stringify(r));
 						console.log(r.scpd.actionList.action.name);
 					});
 				});
