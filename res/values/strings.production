@@ -35,12 +35,12 @@
     <string name="stat_notify_content_on_loggedout">Service actief, geen verbinding met server</string>
     
     <!-- URBAN AIRSHIP PROPERTIES (FOR PUSH MESSAGES) -->
-    <string name="urban_airship_c2dmsender">marcoslacoste.test@gmail.com</string>
+    <string name="urban_airship_c2dmsender">fiqs.push.prod@gmail.com</string>
     <string name="urban_airship_transport">c2dm</string>
-    <string name="urban_airship_development_app_key"></string>
-    <string name="urban_airship_development_app_secret"></string>
-    <string name="urban_airship_production_app_key">h5GZdb_sRpuxxbaHa-Dt_A</string>
-    <string name="urban_airship_production_app_secret">R1IbR7ptQfG0vXalLt6Tyw</string>
+    <string name="urban_airship_development_app_key">ZVKpv7gYQxOMbgJGQIuZdg</string>
+    <string name="urban_airship_development_app_secret">OHI1Dq3tQLWRDGV2Q8rDHA</string>
+    <string name="urban_airship_production_app_key">oI2No-fvRSqSzpEGTaRtOA</string>
+    <string name="urban_airship_production_app_secret">ombtPfuxTX2OVEHkd1lI8w</string>
     <string name="urban_airship_in_production">true</string>
     <string name="urban_airship_iap_enabled">false</string>
     
