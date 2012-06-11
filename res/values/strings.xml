@@ -2,11 +2,11 @@
 <resources>
 
     <!-- MAIN APP NAME -->
-    <string name="app_name">Moodie</string>    
+    <string name="app_name">Moodie</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-		<string name="app_url">http://diemoo.myask.me/paige.html</string>
-<!--     <string name="app_url">http://10.200.200.117:8889</string> -->
+	<string name="app_url">http://moodie.myask.me/paige.html</string>
+    <!-- <string name="app_url">http://10.200.200.117:8889</string> -->
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.moodie.SenseApp</string>
