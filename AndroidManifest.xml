@@ -97,7 +97,7 @@
         </activity>
 
         <receiver
-            android:name="nl.ask.paige.app.receiver.C2DMReceiver"
+            android:name="nl.ask.paige.app.messages.C2DMReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
 
             <!-- Receive the actual message -->
@@ -125,9 +125,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" />
-
-        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
