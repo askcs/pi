@@ -63,9 +63,6 @@
         android:icon="@drawable/ic_launcher_buurtzorg"
         android:label="@string/app_name" >
 
-        <!-- REQUIRED FOR PHONEGAP -->
-        <activity android:name="com.phonegap.DroidGap" />
-
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
             android:name="nl.ask.paige.app.Paige"
@@ -86,7 +83,7 @@
         </activity>
 
         <receiver
-            android:name="nl.ask.paige.receiver.IntentRx"
+            android:name="nl.ask.paige.app.receiver.IntentRx"
             android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="nl.ecareservices.buurtzorg.IntentRx" />
@@ -99,15 +96,12 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" />
-
-        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" />
+        <receiver android:name="nl.ask.paige.app.messages.C2DMReceiver" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:exported="false"
-            android:process="nl.ecareservices.buurtzorg.service" >
+            android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ecareservices.buurtzorg.SenseService" />
 
@@ -128,39 +122,31 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+        <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
+        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
 
-        <receiver
-            android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ecareservices.buurtzorg.service" >
+        <receiver android:name="nl.sense_os.service.BootRx" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.sense_os.service.AliveChecker"
-            android:exported="false"
-            android:process="nl.ecareservices.buurtzorg.service.alivechecker" >
+        <receiver android:name="nl.sense_os.service.AliveChecker" >
             <intent-filter>
                 <action android:name="nl.ecareservices.buurtzorg.AliveCheck" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.sense_os.service.DataTransmitter"
-            android:exported="false"
-            android:process="nl.ecareservices.buurtzorg.service.datatransmitter" >
+        <receiver android:name="nl.sense_os.service.DataTransmitter" >
             <intent-filter>
                 <action android:name="nl.ecareservices.buurtzorg.DataTransmit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.sense_os.service.NetworkMonitor"
-            android:process="nl.sense_os.service" >
+        <receiver android:name="nl.sense_os.service.NetworkMonitor" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
