@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.ask.paige.app"
-    android:versionCode="20120312"
-    android:versionName="beta (Mar 12, 2012)" >
+    package="nl.ask.paige.testapp"
+    android:versionCode="20120711"
+    android:versionName="beta (July 6, 2012)" >
 
     <permission
         android:name="nl.ask.paige.app.permission.C2D_MESSAGE"
@@ -94,27 +94,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.app.NOTIFICATION" />
+                <action android:name="nl.ask.paige.testapp.NOTIFICATION" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <receiver
-            android:name="nl.ask.paige.app.receiver.C2DMReceiver"
+            android:name="nl.ask.paige.testapp.messages.C2DMReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
 -->
             <!-- Receive the actual message -->
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="nl.ask.paige.app" />
+                <category android:name="nl.ask.paige.testapp" />
             </intent-filter>
             <!-- Receive the registration id -->
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="nl.ask.paige.app" />
+                <category android:name="nl.ask.paige.testapp" />
             </intent-filter>
         </receiver>
         <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
@@ -129,17 +129,17 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" />
+        <receiver android:name="nl.ask.paige.testapp.messages.NewMsgCheckRx" />
 
-        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" />
+        <service android:name="nl.ask.paige.testapp.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
             android:exported="false"
-            android:process="nl.ask.paige.app.sense_service" >
+            android:process="nl.ask.paige.testappp.sense_service" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.SenseService" />
+                <action android:name="nl.ask.paige.testapp.SenseService" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -151,12 +151,12 @@
             <!-- do not use separate process for this service to enable PhoneGap to get/put data -->
             <!-- android:process="nl.ask.paige.app.sense_msgs" -->
             <intent-filter>
-                <action android:name="nl.ask.paige.app.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.testapp.MsgHandler.NEW_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.app.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.paige.testapp.MsgHandler.SEND_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -166,7 +166,7 @@
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.app.sense_monitoring" >
+            android:process="nl.ask.paige.testapp.sense_monitoring" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -176,9 +176,9 @@
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
             android:exported="false"
-            android:process="nl.ask.paige.app.sense_monitoring" >
+            android:process="nl.ask.paige.testapp.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.AliveCheck" />
+                <action android:name="nl.ask.paige.testapp.AliveCheck" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -186,9 +186,9 @@
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
             android:exported="false"
-            android:process="nl.ask.paige.app.sense_monitoring" >
+            android:process="nl.ask.paige.testapp.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.DataTransmit" />
+                <action android:name="nl.ask.paige.testapp.DataTransmit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -196,7 +196,7 @@
         <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
         <receiver
             android:name="nl.sense_os.service.NetworkMonitor"
-            android:process="nl.ask.paige.app.sense_service" >
+            android:process="nl.ask.paige.testapp.sense_service" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
