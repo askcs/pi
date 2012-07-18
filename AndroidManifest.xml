@@ -103,7 +103,7 @@
         <receiver
             android:name="nl.ask.paige.app.receiver.C2DMReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
--->
+
             <!-- Receive the actual message -->
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -136,8 +136,7 @@
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:exported="false"
-            android:process="nl.ask.paige.app.sense_service" >
+            android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.app.SenseService" />
 
@@ -149,7 +148,6 @@
             android:exported="false" >
 
             <!-- do not use separate process for this service to enable PhoneGap to get/put data -->
-            <!-- android:process="nl.ask.paige.app.sense_msgs" -->
             <intent-filter>
                 <action android:name="nl.ask.paige.app.MsgHandler.NEW_DATA" />
 
@@ -160,13 +158,18 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </service>        
+        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
+        <service android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="nl.ask.paige.app.AppWidgetUpdate" />
+            </intent-filter>
         </service>
-        <service android:name="nl.sense_os.service.states.EpiStateMonitor" >
-        </service>
+        <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
 
         <receiver
-            android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.app.sense_monitoring" >
+            android:name="nl.sense_os.service.BootRx" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -174,9 +177,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="nl.sense_os.service.AliveChecker"
-            android:exported="false"
-            android:process="nl.ask.paige.app.sense_monitoring" >
+            android:name="nl.sense_os.service.AliveChecker">
             <intent-filter>
                 <action android:name="nl.ask.paige.app.AliveCheck" />
 
@@ -184,9 +185,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="nl.sense_os.service.DataTransmitter"
-            android:exported="false"
-            android:process="nl.ask.paige.app.sense_monitoring" >
+            android:name="nl.sense_os.service.DataTransmitter" >
             <intent-filter>
                 <action android:name="nl.ask.paige.app.DataTransmit" />
 
@@ -195,8 +194,7 @@
         </receiver>
         <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
         <receiver
-            android:name="nl.sense_os.service.NetworkMonitor"
-            android:process="nl.ask.paige.app.sense_service" >
+            android:name="nl.sense_os.service.NetworkMonitor" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
