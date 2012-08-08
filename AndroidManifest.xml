@@ -67,22 +67,31 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="10" />
+        android:targetSdkVersion="11" />
 
     <application
         android:icon="@drawable/ic_launcher_paige"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true" >
 
         <!-- REQUIRED FOR PHONEGAP -->
         <activity android:name="com.phonegap.DroidGap" />
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
+            android:name="nl.ask.paige.app.PaigeSplash"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="nl.ask.paige.app.Paige"
-            android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:multiprocess="false"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,9 +108,29 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+         <activity
+            android:name="nl.ask.paige.app.PaigeLogin"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="nl.ask.paige.app.PaigeForgotPass"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="nl.ask.paige.app.PaigeRegister"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="nl.ask.paige.app.PaigeHome"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo" >
+        </activity>
 
         <receiver
-            android:name="nl.ask.paige.app.receiver.C2DMReceiver"
+            android:name="nl.ask.paige.app.messages.C2DMReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
 
             <!-- Receive the actual message -->
@@ -148,6 +177,7 @@
             android:exported="false" >
 
             <!-- do not use separate process for this service to enable PhoneGap to get/put data -->
+            <!-- android:process="nl.ask.paige.app.sense_msgs" -->
             <intent-filter>
                 <action android:name="nl.ask.paige.app.MsgHandler.NEW_DATA" />
 
@@ -158,18 +188,22 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </service>        
-        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
-        <service android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
+        </service>
+        <service
+            android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.AppWidgetUpdate" />
+                <action android:name="nl.ask.paige.moodie.AppWidgetUpdate" />
             </intent-filter>
         </service>
-        <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
+        <service
+            android:name="nl.sense_os.service.states.EpiStateMonitor"
+            android:exported="false" />
+        <service
+            android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService"
+            android:exported="false" />
 
-        <receiver
-            android:name="nl.sense_os.service.BootRx" >
+        <receiver android:name="nl.sense_os.service.BootRx" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -177,7 +211,8 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="nl.sense_os.service.AliveChecker">
+            android:name="nl.sense_os.service.AliveChecker"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.app.AliveCheck" />
 
@@ -185,7 +220,8 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="nl.sense_os.service.DataTransmitter" >
+            android:name="nl.sense_os.service.DataTransmitter"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.app.DataTransmit" />
 
@@ -193,8 +229,7 @@
             </intent-filter>
         </receiver>
         <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
-        <receiver
-            android:name="nl.sense_os.service.NetworkMonitor" >
+        <receiver android:name="nl.sense_os.service.NetworkMonitor" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
