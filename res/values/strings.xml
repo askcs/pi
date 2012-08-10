@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+   
     <!-- MAIN APP NAME -->
     <string name="app_name">Timeout!</string>
 
+    <!-- URL FOR WEB VIEW CONTENT -->
+	<!-- <string name="app_url">http://diemoo.myask.me/paige.html</string> -->
+	<string name="app_url">http://10.200.200.137:8888/paige.html</string>
+
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Sense Platform</string>
-
-    <!-- URL FOR WEB VIEW CONTENT -->
-    <!-- <string name="app_url">http://10.200.200.148:8889</string> -->
-    <string name="app_url">http://paige.ask-cs.com</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.timeout.SenseApp</string>
@@ -49,4 +50,10 @@
    	<string name="stat_notify_new_messages">You have new messages</string>
    	<string name="stat_notify_priority">High priority message</string>
    	<string name="hello">Hello</string>
+   	
+   	<string name="toggle_home">Home</string>
+    <string name="toggle_settings">Settings</string>
+    <string name="toggle_help">Help</string>
+    <string name="toggle_logout">Logout</string>
+    <string name="toggle_message">Message Center</string>
 </resources>
