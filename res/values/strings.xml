@@ -12,31 +12,31 @@
 	<string name="app_url">http://knrm.paige4ask.appspot.com/paige.html</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.testapp.SenseApp</string>
-    <string name="action_sense_settings">nl.ask.paige.testapp.SenseSettings</string>
-    <string name="action_sense_service">nl.ask.paige.testapp.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.testapp.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.testapp.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.testapp.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.testapp.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.testapp.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.testapp.DataTransmit</string>
-    <string name="action_widget_update">nl.ask.paige.testapp.AppWidgetUpdate</string>
-    <string name="action_widget_start_phone_state">nl.ask.paige.testapp.StartPhoneState</string>
-    <string name="action_widget_start_location">nl.ask.paige.testapp.StartLocation</string>
-    <string name="action_widget_start_motion">nl.ask.paige.testapp.StartMotion</string>
-    <string name="action_widget_start_ambience">nl.ask.paige.testapp.StartAmbience</string>
-    <string name="action_widget_start_devices">nl.ask.paige.testapp.StartDevices</string>
-    <string name="action_widget_start_external">nl.ask.paige.testapp.StartExternal</string>
-    <string name="action_widget_stop_phone_state">nl.ask.paige.testapp.StopPhoneState</string>
-    <string name="action_widget_stop_location">nl.ask.paige.testapp.StopLocation</string>
-    <string name="action_widget_stop_motion">nl.ask.paige.testapp.StopMotion</string>
-    <string name="action_widget_stop_ambience">nl.ask.paige.testapp.StopAmbience</string>
-    <string name="action_widget_stop_devices">nl.ask.paige.testapp.StopDevices</string>
-    <string name="action_widget_stop_external">nl.ask.paige.testapp.StopExternal</string>
+    <string name="action_sense_app">nl.ask.paige.knrm.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.paige.knrm.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.paige.knrm.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.knrm.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.knrm.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.knrm.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.knrm.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.knrm.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.knrm.DataTransmit</string>
+    <string name="action_widget_update">nl.ask.paige.knrm.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ask.paige.knrm.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ask.paige.knrm.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ask.paige.knrm.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ask.paige.knrm.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ask.paige.knrm.StartDevices</string>
+    <string name="action_widget_start_external">nl.ask.paige.knrm.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ask.paige.knrm.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ask.paige.knrm.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ask.paige.knrm.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ask.paige.knrm.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ask.paige.knrm.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ask.paige.knrm.StopExternal</string>
 
     <!-- NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ask.paige.testapp.NOTIFICATION</string>
+    <string name="stat_notify_action">nl.ask.paige.knrm.NOTIFICATION</string>
     <string name="stat_notify_title">Paige</string>
     <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>
