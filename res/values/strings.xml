@@ -7,7 +7,8 @@
 
     <!-- URL FOR WEB VIEW CONTENT -->
 	<!-- <string name="app_url">http://diemoo.myask.me/paige.html</string> -->
-	<string name="app_url">http://10.200.200.137:8888/paige.html</string>
+	<string name="app_url">http://10.200.200.201:8887/home.html</string>
+<!-- 	<string name="app_url">file:///android_asset/www/home.html</string> -->
 
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Sense Platform</string>

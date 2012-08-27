@@ -75,7 +75,11 @@
         android:label="@string/app_name" >
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
-        <activity android:name="nl.ask.paige.app.Paige" android:screenOrientation="portrait" android:theme="@style/android:Theme.Holo" android:launchMode="singleTop">
+        <activity
+            android:name="nl.ask.paige.app.Paige"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -91,12 +95,12 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity><activity
+        </activity>
+        <activity
             android:name="nl.ask.paige.app.PaigeSplash"
             android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo.NoActionBar" >
         </activity>
-        
         <activity
             android:name="nl.ask.paige.app.PaigeLogin"
             android:screenOrientation="portrait"
