@@ -7,8 +7,8 @@
 
     <!-- URL FOR WEB VIEW CONTENT -->
 	<!-- <string name="app_url">http://diemoo.myask.me/paige.html</string> -->
-	<string name="app_url">http://10.200.200.201:8887/home.html</string>
-<!-- 	<string name="app_url">file:///android_asset/www/home.html</string> -->
+	<string name="app_url">http://timeout.paige4ask.appspot.com/home.html</string>
+	<!-- <string name="app_url">file:///android_asset/www/home.html</string> -->
 
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Sense Platform</string>
@@ -40,10 +40,10 @@
     <!-- NOTIFICATION RESOURCES -->
     <string name="stat_notify_action">nl.ask.paige.timeout.NOTIFICATION</string>
     <string name="stat_notify_title">Timeout!</string>
-    <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string>
-    <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>
-    <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string>
-    <string name="stat_notify_content_on_loggedout">Sensors active, no connection to CommonSense</string>
+    <string name="stat_notify_content_off_loggedin">Monitoring inactief, ingelogd als \'%s\'</string>
+    <string name="stat_notify_content_off_loggedout">Monitoring inactief, verbinding verbroken</string>
+    <string name="stat_notify_content_on_loggedin">"Monitoring actief, ingelogd als \'%s\'"</string>
+    <string name="stat_notify_content_on_loggedout">Monitoring actief, verbinding verbroken</string>
 
 	<string name="dialog_connectivity_msg">Internet connection unavailable! Please try again later.</string>
    	<string name="menu_title_settings">Settings</string>
