@@ -76,8 +76,8 @@
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
-            android:name="nl.ask.paige.app.Paige"
             android:launchMode="singleTop"
+            android:name="nl.ask.paige.app.Paige"
             android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
             <intent-filter>
@@ -139,9 +139,8 @@
                 <category android:name="nl.ask.paige.timeout" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.ask.paige.app.receiver.IntentRx"
-            android:exported="false" >
+        <!-- intent receiver need to be exported so other apps can send intents to it? -->
+        <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
             <intent-filter>
                 <action android:name="nl.ask.paige.timeout.IntentRx" />
 
@@ -177,7 +176,6 @@
                 <action android:name="nl.ask.paige.timeout.MsgHandler.SEND_DATA" />
             </intent-filter>
         </service>
-        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
         <service
             android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
             android:exported="false" >
@@ -186,6 +184,7 @@
             </intent-filter>
         </service>
         <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
+        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
