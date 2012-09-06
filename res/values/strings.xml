@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MAIN APP NAME -->
-    <string name="app_name">Atus HF</string>
+    <string name="app_name">Atus LW</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
-    <string name="sense_app_name">Atus HF</string>
+    <string name="sense_app_name">Atus LW</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-     <string name="app_url">http://hf.paige4atus.appspot.com</string> 
+     <string name="app_url">http://lw.paige4atus.appspot.com</string> 
 <!-- <string name="app_url">http://10.200.200.100:8889/</string> -->
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
