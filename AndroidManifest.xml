@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.ask.paige.atus_hf"
+    package="nl.ask.paige.atus_lw"
     android:versionCode="20120906"
     android:versionName="beta (July 6, 2012)" >
 
