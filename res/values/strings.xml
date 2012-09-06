@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MAIN APP NAME -->
-    <string name="app_name">Buurtzorg</string>
+    <string name="app_name">Atus HF</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
-    <string name="sense_app_name">Buurtzorg</string>
+    <string name="sense_app_name">Atus HF</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-    <string name="app_url">http://buurtzorg.paige4ask.appspot.com</string>
+     <string name="app_url">http://hf.paige4atus.appspot.com</string> 
 <!-- <string name="app_url">http://10.200.200.100:8889/</string> -->
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ecareservices.buurtzorg.SenseApp</string>
-    <string name="action_sense_settings">nl.ecareservices.buurtzorg.SenseSettings</string>
-    <string name="action_sense_service">nl.ecareservices.buurtzorg.SenseService</string>
-    <string name="action_sense_new_data">nl.ecareservices.buurtzorg.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ecareservices.buurtzorg.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ecareservices.buurtzorg.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ecareservices.buurtzorg.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ecareservices.buurtzorg.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ecareservices.buurtzorg.DataTransmit</string>
+    <string name="action_sense_app">nl.ask.paige.atus.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.paige.atus.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.paige.atus.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.atus.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.atus.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.atus.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.atus.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.atus.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.atus.DataTransmit</string>
     
     <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
-    <string name="local_storage_authority">nl.ecareservices.buurtzorg.provider.LocalStorage</string>
+    <string name="local_storage_authority">nl.ask.paige.atus.provider.LocalStorage</string>
 
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ecareservices.buurtzorg.Paige</string>
-    <string name="stat_notify_title">Buurtzorg</string>
+    <string name="stat_notify_action">nl.ask.paige.atus.Paige</string>
+    <string name="stat_notify_title">atus</string>
     <string name="stat_notify_content_off_loggedin">Service inactief, ingelogd als \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Service inactief</string>
     <string name="stat_notify_content_on_loggedin">"Service actief, ingelogd als \'%s\'"</string>
