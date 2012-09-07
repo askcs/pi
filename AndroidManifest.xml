@@ -101,7 +101,7 @@
         </activity>
 
         <receiver
-            android:name="nl.ask.paige.atus.messages.C2DMReceiver"
+            android:name="nl.ask.paige.app.messages.C2DMReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
 -->
             <!-- Receive the actual message -->
