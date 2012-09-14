@@ -89,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nl.ask.paige.app.Paige"
+            android:name="nl.ask.paige.app.PaigeNative"
             android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
             <intent-filter>
