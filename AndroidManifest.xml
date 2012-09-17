@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.ask.paige.atus_lw"
-    android:versionCode="20120906"
-    android:versionName="beta (July 6, 2012)" >
+    android:versionCode="20120913"
+    android:versionName="beta 1.1" >
 
     <permission
         android:name="nl.ask.paige.app.permission.C2D_MESSAGE"
@@ -108,13 +108,13 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="nl.ask.paige.atus" />
+                <category android:name="nl.ask.paige.atus_lw" />
             </intent-filter>
             <!-- Receive the registration id -->
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="nl.ask.paige.atus" />
+                <category android:name="nl.ask.paige.atus_lw" />
             </intent-filter>
         </receiver>
         <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
@@ -129,17 +129,17 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="nl.ask.paige.atus.messages.NewMsgCheckRx" />
+        <receiver android:name="nl.ask.paige.atus_lw.messages.NewMsgCheckRx" />
 
-        <service android:name="nl.ask.paige.atus.messages.NewMsgChecker" />
+        <service android:name="nl.ask.paige.atus_lw.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
             android:exported="false"
-            android:process="nl.ask.paige.atus.sense_service" >
+            android:process="nl.ask.paige.atus_lw.sense_service" >
             <intent-filter>
-                <action android:name="nl.ask.paige.atus.SenseService" />
+                <action android:name="nl.ask.paige.atus_lw.SenseService" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -151,12 +151,12 @@
             <!-- do not use separate process for this service to enable PhoneGap to get/put data -->
             <!-- android:process="nl.ask.paige.app.sense_msgs" -->
             <intent-filter>
-                <action android:name="nl.ask.paige.atus.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.atus_lw.MsgHandler.NEW_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.atus.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.paige.atus_lw.MsgHandler.SEND_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -166,7 +166,7 @@
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.atus.sense_monitoring" >
+            android:process="nl.ask.paige.atus_lw.sense_monitoring" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -176,9 +176,9 @@
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
             android:exported="false"
-            android:process="nl.ask.paige.atus.sense_monitoring" >
+            android:process="nl.ask.paige.atus_lw.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.atus.AliveCheck" />
+                <action android:name="nl.ask.paige.atus_lw.AliveCheck" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -186,9 +186,9 @@
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
             android:exported="false"
-            android:process="nl.ask.paige.atus.sense_monitoring" >
+            android:process="nl.ask.paige.atus_lw.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.atus.DataTransmit" />
+                <action android:name="nl.ask.paige.atus_lw.DataTransmit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -196,7 +196,7 @@
         <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
         <receiver
             android:name="nl.sense_os.service.NetworkMonitor"
-            android:process="nl.ask.paige.atus.sense_service" >
+            android:process="nl.ask.paige.atus_lw.sense_service" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
