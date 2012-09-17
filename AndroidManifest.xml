@@ -138,7 +138,7 @@
         </receiver>
         <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.IntentRx" />
+                <action android:name="nl.ask.paige.atus_lw.IntentRx" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -171,7 +171,7 @@
             android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie.AppWidgetUpdate" />
+                <action android:name="nl.ask.paige.atus_lw.AppWidgetUpdate" />
             </intent-filter>
         </service>
         <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
