@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+   
     <!-- MAIN APP NAME -->
     <string name="app_name">Atus HF</string>
+
+    <!-- URL FOR WEB VIEW CONTENT -->
+	<string name="app_url">http://hf.paige4atus.appspot.com/paige.html</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Atus HF</string>
 
-    <!-- URL FOR WEB VIEW CONTENT -->
-    <string name="app_url">http://hf.paige4atus.appspot.com/paige.html</string> 
-<!-- 	<string name="app_url">http://10.200.200.196:8889/paige.html</string> -->
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
-
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.atus_hf.SenseApp</string>
     <string name="action_sense_settings">nl.ask.paige.atus_hf.SenseSettings</string>
@@ -35,13 +36,13 @@
     <string name="action_widget_stop_ambience">nl.ask.paige.atus_hf.StopAmbience</string>
     <string name="action_widget_stop_devices">nl.ask.paige.atus_hf.StopDevices</string>
     <string name="action_widget_stop_external">nl.ask.paige.atus_hf.StopExternal</string>
-    
+
     <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
     <string name="local_storage_authority">nl.ask.paige.atus_hf.provider.LocalStorage</string>
 
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
     <string name="stat_notify_action">nl.ask.paige.atus_hf.Paige</string>
-    <string name="stat_notify_title">atus</string>
+    <string name="stat_notify_title">Atus</string>
     <string name="stat_notify_content_off_loggedin">Service inactief, ingelogd als \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Service inactief</string>
     <string name="stat_notify_content_on_loggedin">"Service actief, ingelogd als \'%s\'"</string>
