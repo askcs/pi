@@ -42,8 +42,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<!--     <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+<!--     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -89,7 +89,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.app.Paige" />
+                <action android:name="nl.ask.paige.buurtzorg.Paige" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -119,7 +119,7 @@
         </receiver>
         <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
             <intent-filter>
-                <action android:name="nl.ask.paige.app.IntentRx" />
+                <action android:name="nl.ask.paige.buurtzorg.IntentRx" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -163,6 +163,14 @@
         </service>
         <service android:name="nl.sense_os.service.states.EpiStateMonitor" >
         </service>
+        
+        <service
+		  android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
+		  android:exported="false" >
+		  <intent-filter>
+		    <action android:name="nl.ask.paige.buurtzorg.AppWidgetUpdate" />
+		  </intent-filter>
+		</service>
 
         <receiver
             android:name="nl.sense_os.service.BootRx"

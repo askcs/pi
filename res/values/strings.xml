@@ -7,8 +7,8 @@
     <string name="sense_app_name">Buurtzorg</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-<!--     <string name="app_url">http://buurtzorg.paige4ask.appspot.com</string> -->
-<string name="app_url">http://10.200.200.100:8889/</string>
+    <string name="app_url">http://buurtzorg.paige4ask.appspot.com</string>
+<!-- <string name="app_url">http://10.200.200.100:8889/</string> -->
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
 
@@ -40,7 +40,7 @@
     <string name="local_storage_authority">nl.ask.paige.buurtzorg.provider.LocalStorage</string>
 
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ask.paige.buurtzorg.Paige</string>
+    <string name="stat_notify_action">nl.ask.paige.buurtzorg.NOTIFICATION</string>
     <string name="stat_notify_title">Buurtzorg</string>
     <string name="stat_notify_content_off_loggedin">Buurtzorg app niet actief</string>
     <string name="stat_notify_content_off_loggedout">Buurtzorg app niet actief</string>
