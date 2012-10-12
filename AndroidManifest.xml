@@ -123,6 +123,16 @@
             android:screenOrientation="portrait" 
             android:theme="@style/android:Theme.Holo" >
         </activity>
+        <activity
+            android:name="nl.ask.paige.app.PaigeMessages"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo" >
+        </activity>
+        <activity
+            android:name="nl.ask.paige.app.SettingsDialogMessages"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo" >
+        </activity>
 
         <receiver
             android:name="nl.ask.paige.app.messages.C2DMReceiver"
