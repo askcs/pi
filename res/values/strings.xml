@@ -1,36 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+   
     <!-- MAIN APP NAME -->
     <string name="app_name">Atus HF</string>
 
+    <!-- URL FOR WEB VIEW CONTENT -->
+	<string name="app_url">http://hf.paige4atus.appspot.com/paige.html</string>
+
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Atus HF</string>
-
-    <!-- URL FOR WEB VIEW CONTENT -->
-     <string name="app_url">http://hf.paige4atus.appspot.com</string> 
-<!-- <string name="app_url">http://10.200.200.100:8889/</string> -->
-
-    <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
-
-    <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.atus.SenseApp</string>
-    <string name="action_sense_settings">nl.ask.paige.atus.SenseSettings</string>
-    <string name="action_sense_service">nl.ask.paige.atus.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.atus.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.atus.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.atus.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.atus.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.atus.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.atus.DataTransmit</string>
     
+    <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
+    <string name="action_sense_app">nl.ask.paige.atus_hf.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.paige.atus_hf.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.paige.atus_hf.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.atus_hf.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.atus_hf.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.atus_hf.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.atus_hf.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.atus_hf.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.atus_hf.DataTransmit</string>
+    <string name="action_widget_update">nl.ask.paige.atus_hf.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ask.paige.atus_hf.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ask.paige.atus_hf.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ask.paige.atus_hf.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ask.paige.atus_hf.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ask.paige.atus_hf.StartDevices</string>
+    <string name="action_widget_start_external">nl.ask.paige.atus_hf.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ask.paige.atus_hf.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ask.paige.atus_hf.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ask.paige.atus_hf.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ask.paige.atus_hf.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ask.paige.atus_hf.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ask.paige.atus_hf.StopExternal</string>
+
     <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
-    <string name="local_storage_authority">nl.ask.paige.atus.provider.LocalStorage</string>
+    <string name="local_storage_authority">nl.ask.paige.atus_hf.provider.LocalStorage</string>
 
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ask.paige.atus.Paige</string>
-    <string name="stat_notify_title">atus</string>
+    <string name="stat_notify_action">nl.ask.paige.atus_hf.Paige</string>
+    <string name="stat_notify_title">Atus</string>
     <string name="stat_notify_content_off_loggedin">Service inactief, ingelogd als \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Service inactief</string>
     <string name="stat_notify_content_on_loggedin">"Service actief, ingelogd als \'%s\'"</string>
     <string name="stat_notify_content_on_loggedout">Service actief</string>
+
+	<string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
+   	<string name="menu_title_settings">Settings</string>
+   	<string name="menu_title_refresh">Refresh</string>
+   	<string name="stat_notify_new_messages">You have new messages</string>
+   	<string name="stat_notify_priority">High priority message</string>
 </resources>
