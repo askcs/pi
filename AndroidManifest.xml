@@ -66,34 +66,23 @@
     <uses-permission android:name="nl.ask.paige.moodie.permission.C2D_MESSAGE" />
 
     <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="8"
+        android:targetSdkVersion="11" />
 
     <application
         android:icon="@drawable/ic_launcher_paige"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true" >
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
             android:name="nl.ask.paige.app.Paige"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:launchMode="singleTop"
-            android:multiprocess="false"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.moodie.Paige" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.moodie.NOTIFICATION" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -114,8 +103,7 @@
                 <category android:name="nl.ask.paige.moodie" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.ask.paige.app.receiver.IntentRx"
+        <receiver android:name="nl.ask.paige.app.receiver.IntentRx" 
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.moodie.IntentRx" />
@@ -123,15 +111,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.ask.paige.app.boot.BootRx"
-            android:exported="false" >
+        <receiver android:name="nl.ask.paige.app.boot.BootRx" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-
-                <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
+        <receiver android:name="nl.ask.paige.app.messages.NewMsgCheckRx" />
+
+        <service android:name="nl.ask.paige.app.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
@@ -148,7 +135,13 @@
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.moodie.MsgHandler.NEW_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="nl.ask.paige.moodie.MsgHandler.SEND_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
         <service
@@ -156,17 +149,12 @@
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.moodie.AppWidgetUpdate" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
         <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
         <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
-        <service android:name="nl.sense_os.service.push.GCMReceiver" />
 
-        <receiver
-            android:name="nl.sense_os.service.BootRx"
-            android:exported="false" >
+        <receiver android:name="nl.sense_os.service.BootRx" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -178,6 +166,8 @@
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.moodie.AliveCheck" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
         <receiver
@@ -185,13 +175,17 @@
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.moodie.DataTransmit" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="nl.sense_os.service.NetworkMonitor"
+        <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
+        <receiver android:name="nl.sense_os.service.NetworkMonitor" 
             android:exported="false" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
     </application>

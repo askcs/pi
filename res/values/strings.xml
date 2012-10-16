@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- MAIN APP NAME -->
     <string name="app_name">Moodie</string>
+    <string name="app_url">http://moodie.myask.me/paige.html</string> 
 
-    <!-- URL FOR WEB VIEW CONTENT -->
-	<string name="app_url">http://moodie.myask.me/paige.html</string>
-    <!-- <string name="app_url">http://10.200.200.117:8889</string> -->
+    <string name="dialog_connectivity_msg">Internet connection unavailable! Please try again later.</string>
+    <string name="menu_title_settings">Settings</string>
+    <string name="menu_title_refresh">Refresh</string>
+    <string name="stat_notify_new_messages">You have new messages</string>
+    <string name="stat_notify_priority">High priority message</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="retypepassword">Retype your password</string>
+    <string name="login">Login</string>
+    <string name="insufficient_login">Insufficient login details</string>
+    <string name="login_complete">Login complete</string>
+    <string name="login_error">Login error</string>
+    
+    <string name="remember_me">Remember me</string>
+    
+    <string name="forgot">Forgot password?</string>
+    <string name="forgotpass_text">Your password is send to your e-mailaddress</string>
+    
+    <string name="register">Register</string>
+    <string name="register_error">Register error</string>
+    <string name="insufficient_register">Insufficient registration details</string>
+    <string name="submit">Submit</string>
+    
+     <string name="menu_settings">Settings</string>
+    <string name="title_activity_splash_paige">Native Paige</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="desc">image</string>
+    <string name="yourstates">Your States</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.moodie.SenseApp</string>
