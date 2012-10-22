@@ -124,7 +124,12 @@
             android:theme="@style/android:Theme.Holo" >
         </activity>
         <activity
-            android:name="nl.ask.paige.app.PaigeMessages"
+            android:name="nl.ask.paige.app.PaigeMessageCenter"
+            android:screenOrientation="portrait" 
+            android:theme="@style/android:Theme.Holo" >
+        </activity>
+        <activity
+            android:name="nl.ask.paige.app.PaigeChat"
             android:screenOrientation="portrait" 
             android:theme="@style/android:Theme.Holo" >
         </activity>
