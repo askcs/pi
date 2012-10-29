@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20111216"
-    android:versionName="beta version"
-    package="nl.ask.paige.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nl.ask.paige.rszk"
+    android:versionCode="20121023"
+    android:versionName="beta 1.1" >
+
+    <permission
+        android:name="nl.ask.paige.rszk.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -18,6 +21,9 @@
         android:name="android.hardware.touchscreen"
         android:required="true" />
     <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+    <uses-feature
         android:name="android.hardware.bluetooth"
         android:required="true" />
     <!-- implied by permission PROCESS OUTGOING_CALLS, but not required -->
@@ -28,10 +34,11 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-	<uses-feature
-       android:name="android.hardware.nfc"
-       android:required="false" />
-    
+    <!-- implied by permission NFC, but not required -->
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -39,13 +46,14 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -54,139 +62,147 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="nl.ask.paige.rszk.permission.C2D_MESSAGE" />
 
     <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="10" />
+        android:minSdkVersion="8"
+        android:targetSdkVersion="11" />
 
     <application
-        android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher_paige">
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher_paige"
+        android:label="@string/app_name" >
 
         <!-- REQUIRED FOR PHONEGAP -->
-        <activity
-            android:name="com.phonegap.DroidGap"
-            android:label="@string/app_name"
-            android:configChanges="orientation|keyboardHidden">
-        </activity>
+        <activity android:name="com.phonegap.DroidGap" />
 
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
             android:name="nl.ask.paige.app.Paige"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:process="nl.ask.paige.app"
-            android:multiprocess="false"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.app.NOTIFICATION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.extra.SUBJECT" />
+                <action android:name="nl.ask.paige.rszk.NOTIFICATION" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="nl.ask.paige.app.PaigeSplash"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo.NoActionBar" />
+        <activity
+            android:name="nl.ask.paige.app.PaigeNative"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo" />
+        <activity
+            android:name="nl.ask.paige.app.PaigeLogin"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo.NoActionBar" />
+        <activity
+            android:name="nl.ask.paige.app.PaigeForgotPass"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo.NoActionBar" />
+        <activity
+            android:name="nl.ask.paige.app.PaigeRegister"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo.NoActionBar" />
+        <activity
+            android:name="nl.ask.paige.app.PaigeHome"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo" />
 
         <receiver
-            android:name="nl.ask.paige.receiver.IntentRx"
-            android:launchMode="singleInstance">
+            android:name="nl.ask.paige.app.messages.C2DMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+
+            <!-- Receive the actual message -->
             <intent-filter>
-                <action android:name="nl.ask.paige.receiver.IntentRx" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="nl.ask.paige.rszk" />
+            </intent-filter>
+            <!-- Receive the registration id -->
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="nl.ask.paige.rszk" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
+            <intent-filter>
+                <action android:name="nl.ask.paige.rszk.IntentRx" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <receiver android:name="nl.ask.paige.app.boot.BootRx" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
-        <service android:name="nl.ask.paige.app.PaigeService">
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.PaigeService" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.app.PaigeService.alert" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-        
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:process="nl.ask.paige.app.sense_service"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.SenseService" />
+                <action android:name="nl.ask.paige.rszk.SenseService" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-
         <service
             android:name="nl.sense_os.service.MsgHandler"
-            android:process="nl.ask.paige.app.sense_msgs"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.NEW_DATA" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="nl.ask.paige.MsgHandler.SEND_DATA" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="nl.ask.paige.rszk.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.rszk.MsgHandler.SEND_DATA" />
             </intent-filter>
         </service>
+        <service
+            android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="nl.ask.paige.rszk.AppWidgetUpdate" />
+            </intent-filter>
+        </service>
+        <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
+        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
 
-        <receiver
-            android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.app.sense_monitoring">
+        <receiver android:name="nl.sense_os.service.BootRx" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
-            android:process="nl.ask.paige.app.sense_monitoring"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.AliveCheck" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="nl.ask.paige.rszk.AliveCheck" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
-            android:process="nl.ask.paige.app.sense_monitoring"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.DataTransmit" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="nl.ask.paige.rszk.DataTransmit" />
             </intent-filter>
         </receiver>
-        
         <receiver
-            android:name="nl.sense_os.service.NetworkMonitor" 
-            android:process="nl.ask.paige.app.sense_service" >
+            android:name="nl.sense_os.service.NetworkMonitor"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-
     </application>
+
 </manifest>
