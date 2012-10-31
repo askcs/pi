@@ -39,7 +39,7 @@
     <string name="local_storage_authority">nl.ask.paige.atus_hf.provider.LocalStorage</string>
 
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ask.paige.atus_hf.Paige</string>
+    <string name="stat_notify_action">nl.ask.paige.atus_hf.NOTIFICATION</string>
     <string name="stat_notify_title">Atus</string>
     <string name="stat_notify_content_off_loggedin">Service inactief, ingelogd als \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Service inactief</string>
