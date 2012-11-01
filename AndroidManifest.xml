@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.ask.paige.rszk"
     android:versionCode="20121023"
-    android:versionName="beta 1.1" >
+    android:versionName="beta 1.2" >
 
     <permission
         android:name="nl.ask.paige.rszk.permission.C2D_MESSAGE"
