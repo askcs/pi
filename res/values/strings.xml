@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Moodie</string>
-    <string name="app_url">http://moodie.myask.me/paige.html</string> 
+    <string name="app_url">http://moodie2.myask.me/paige.html</string> 
 
     <string name="dialog_connectivity_msg">Internet connection unavailable! Please try again later.</string>
     <string name="menu_title_settings">Settings</string>
