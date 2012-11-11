@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
    
     <!-- MAIN APP NAME -->
     <string name="app_name">Atus HF</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
 	<string name="app_url">http://hf.paige4atus.appspot.com/paige.html</string>
+<!-- 	<string name="app_url">http://10.200.200.196:8889/paige.html</string> -->
 
     <!-- OVERRIDE SENSE APP LABEL -->
     <string name="sense_app_name">Atus HF</string>
