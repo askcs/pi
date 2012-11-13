@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.ask.paige.moodie2"
+    package="nl.ask.paige.moodie"
     android:versionCode="20120619"
     android:versionName="1.0.10" >
 
     <permission
-        android:name="nl.ask.paige.moodie2.permission.C2D_MESSAGE"
+        android:name="nl.ask.paige.moodie.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-feature
@@ -99,13 +99,13 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="nl.ask.paige.moodie2" />
+                <category android:name="nl.ask.paige.moodie" />
             </intent-filter>
             <!-- Receive the registration id -->
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="nl.ask.paige.moodie2" />
+                <category android:name="nl.ask.paige.moodie" />
             </intent-filter>
         </receiver>
         <receiver android:name="nl.ask.paige.app.receiver.IntentRx" 
@@ -130,7 +130,7 @@
             android:name="nl.sense_os.service.SenseService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie2.SenseService" />
+                <action android:name="nl.ask.paige.moodie.SenseService" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -139,12 +139,12 @@
             android:name="nl.sense_os.service.MsgHandler"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie2.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.moodie.MsgHandler.NEW_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie2.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.paige.moodie.MsgHandler.SEND_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -153,7 +153,7 @@
             android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie2.AppWidgetUpdate" />
+                <action android:name="nl.ask.paige.moodie.noconflict.AppWidgetUpdate" />
             </intent-filter>
         </service>
         <service android:name="nl.sense_os.service.states.EpiStateMonitor" />
@@ -170,7 +170,7 @@
             android:name="nl.sense_os.service.AliveChecker"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie2.AliveCheck" />
+                <action android:name="nl.ask.paige.moodie.AliveCheck" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -179,7 +179,7 @@
             android:name="nl.sense_os.service.DataTransmitter"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.moodie2.DataTransmit" />
+                <action android:name="nl.ask.paige.moodie.DataTransmit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
