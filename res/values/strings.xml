@@ -35,18 +35,18 @@
     <string name="yourstates">Your States</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.moodie.SenseApp</string>
-    <string name="action_sense_service">nl.ask.paige.moodie.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.moodie.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.moodie.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.moodie.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.moodie.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.moodie.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.moodie.DataTransmit</string>
-    <string name="action_widget_update">nl.ask.paige.moodie.AppWidgetUpdate</string>
+    <string name="action_sense_app">nl.ask.paige.moodie2.SenseApp</string>
+    <string name="action_sense_service">nl.ask.paige.moodie2.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.moodie2.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.moodie2.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.moodie2.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.moodie2.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.moodie2.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.moodie2.DataTransmit</string>
+    <string name="action_widget_update">nl.ask.paige.moodie2.AppWidgetUpdate</string>
 
     <!-- NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ask.paige.moodie.NOTIFICATION</string>
+    <string name="stat_notify_action">nl.ask.paige.moodie2.NOTIFICATION</string>
     <string name="stat_notify_title">Moodie</string>
     <string name="stat_notify_content_off_loggedin">Meting gestopt, ingelogd als \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Meting gestopt, geen verbinding met server</string>
