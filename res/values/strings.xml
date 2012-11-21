@@ -7,9 +7,9 @@
 
     <!-- URL FOR WEB VIEW CONTENT -->
 	<!-- <string name="app_url">http://diemoo.myask.me/paige.html</string> -->
-	<string name="app_url">http://timeout.paige4timeout.appspot.com/home.html</string>     
-	<!-- <string name="app_url">http://test.paige4timeout.appspot.com/home.html</string> -->  
-	<!-- <string name="app_url">http://10.200.200.201:8887/home.html</string>       -->
+	<string name="app_url">http://timeout.paige4timeout.appspot.com/home.html</string>      
+	<!-- <string name="app_url">http://test.paige4timeout.appspot.com/home.html</string>      -->
+	<!-- <string name="app_url">http://10.200.200.201:8887/home.html</string> -->
 	<!-- <string name="app_url">file:///android_asset/www/home.html</string> -->
 
     <!-- OVERRIDE SENSE APP LABEL -->
@@ -50,8 +50,8 @@
 	<string name="dialog_connectivity_msg">Internet connection unavailable! Please try again later.</string>
    	<string name="menu_title_settings">Settings</string>
    	<string name="menu_title_refresh">Refresh</string>
-   	<string name="stat_notify_new_messages">You have new messages</string>
-   	<string name="stat_notify_priority">High priority message</string>
+   	<string name="stat_notify_new_messages">Er is een nieuw bericht</string>
+   	<string name="stat_notify_priority">Er is een belangrijk bericht!</string>
    	<string name="hello">Hello</string>
    	
    	<string name="toggle_home">Home</string>
