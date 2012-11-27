@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE manifest [
+<!ENTITY packageName "nl.dealservices.dealrecipienttest">
+]>
+
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20123003"
-    android:versionName="1.0.1"
-    package="nl.ask.paige.dealrecipient">
+    android:versionCode="20121116"
+    android:versionName="1.0.6.1"
+    package="nl.dealservices.dealrecipienttest">
 
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -60,8 +65,9 @@
         android:targetSdkVersion="10" />
 
     <application
-        android:icon="@drawable/ic_launcher_paige"
-        android:label="@string/app_name" >
+        android:icon="@drawable/ic_launcher_paige_dev"
+        android:label="@string/app_name" 
+        android:hardwareAccelerated="true" >
 
         <!-- REQUIRED FOR PHONEGAP -->
         <activity android:name="com.phonegap.DroidGap" />
@@ -72,14 +78,15 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:multiprocess="false"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait" 
+            android:configChanges="orientation|screenSize|keyboardHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.app.NOTIFICATION" />
+                <action android:name="&packageName;.app.NOTIFICATION" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -93,18 +100,18 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="nl.ask.paige.dealrecipient" />
+                <category android:name="&packageName;" />
             </intent-filter>
             <!-- Receive the registration id -->
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="nl.ask.paige.dealrecipient" />
+                <category android:name="&packageName;" />
             </intent-filter>
         </receiver>
         <receiver android:name="nl.ask.paige.app.receiver.IntentRx" >
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.IntentRx" />
+                <action android:name="&packageName;.IntentRx" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -120,7 +127,7 @@
             android:name="nl.sense_os.service.SenseService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.SenseService" />
+                <action android:name="&packageName;.SenseService" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -129,12 +136,12 @@
             android:name="nl.sense_os.service.MsgHandler"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.MsgHandler.NEW_DATA" />
+                <action android:name="&packageName;.MsgHandler.NEW_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.MsgHandler.SEND_DATA" />
+                <action android:name="&packageName;.MsgHandler.SEND_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -143,7 +150,7 @@
             android:name="nl.sense_os.service.appwidget.DummyAppWidgetService"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.AppWidgetUpdate" />
+                <action android:name="&packageName;.AppWidgetUpdate" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -161,7 +168,7 @@
             android:name="nl.sense_os.service.AliveChecker"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.AliveCheck" />
+                <action android:name="&packageName;.AliveCheck" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -170,7 +177,7 @@
             android:name="nl.sense_os.service.DataTransmitter"
             android:exported="false" >
             <intent-filter>
-                <action android:name="nl.ask.paige.dealrecipient.DataTransmit" />
+                <action android:name="&packageName;.DataTransmit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

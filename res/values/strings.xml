@@ -1,43 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE resources [
+<!ENTITY packageName "nl.dealservices.dealrecipienttest">
+]>
+
+
 <resources>    
     <!-- MAIN APP NAME -->
-    <string name="app_name">DEAL Recipient</string>
+    <string name="app_name">DEV DEAL Recipient</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
-    <string name="sense_app_name">DEAL Recipient (Sense)</string>
+    <string name="sense_app_name">DEV DEAL Recipient (Sense)</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-<string name="app_url">http://dealrecipient.paige4ask.appspot.com/paige.html</string>
+<!-- For test app:  -->
+   	<string name="app_url">http://recipient-test.deal-mobile.appspot.com/paige.html</string>
+   	
+<!-- For live app:   	
+   	<string name="app_url">http://recipient.deal-mobile.appspot.com/paige.html</string> -->
+   	
+<!--   	<string name="app_url">http://192.168.128.252:54990/paige.html</string> -->
+<!-- 	<string name="app_url">http://dealrecipient.paige4ask.appspot.com/paige.html</string>  -->
 <!--     <string name="app_url">http://10.200.200.120:9999/paige.html</string> -->
 <!--     <string name="app_url">http://paige4ask.appspot.com</string> -->
 <!--    <string name="app_url">http://paige.ask-cs.com</string> -->
     
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.dealrecipient.SenseApp</string>
-    <string name="action_sense_settings">nl.ask.paige.dealrecipient.SenseSettings</string>
-    <string name="action_sense_service">nl.ask.paige.dealrecipient.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.dealrecipient.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.dealrecipient.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.dealrecipient.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.dealrecipient.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.dealrecipient.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.dealrecipient.DataTransmit</string> 
-    <string name="action_widget_update">nl.ask.paige.dealrecipient.AppWidgetUpdate</string>
-    <string name="action_widget_start_phone_state">nl.ask.paige.dealrecipient.StartPhoneState</string>
-    <string name="action_widget_start_location">nl.ask.paige.dealrecipient.StartLocation</string>
-    <string name="action_widget_start_motion">nl.ask.paige.dealrecipient.StartMotion</string>
-    <string name="action_widget_start_ambience">nl.ask.paige.dealrecipient.StartAmbience</string>
-    <string name="action_widget_start_devices">nl.ask.paige.dealrecipient.StartDevices</string>
-    <string name="action_widget_start_external">nl.ask.paige.dealrecipient.StartExternal</string>
-    <string name="action_widget_stop_phone_state">nl.ask.paige.dealrecipient.StopPhoneState</string>
-    <string name="action_widget_stop_location">nl.ask.paige.dealrecipient.StopLocation</string>
-    <string name="action_widget_stop_motion">nl.ask.paige.dealrecipient.StopMotion</string>
-    <string name="action_widget_stop_ambience">nl.ask.paige.dealrecipient.StopAmbience</string>
-    <string name="action_widget_stop_devices">nl.ask.paige.dealrecipient.StopDevices</string>
-    <string name="action_widget_stop_external">nl.ask.paige.dealrecipient.StopExternal</string>
+    <string name="action_sense_app">&packageName;.SenseApp</string>
+    <string name="action_sense_settings">&packageName;.SenseSettings</string>
+    <string name="action_sense_service">&packageName;.SenseService</string>
+    <string name="action_sense_new_data">&packageName;.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">&packageName;.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">&packageName;.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">&packageName;.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">&packageName;.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">&packageName;.DataTransmit</string> 
+    <string name="action_widget_update">&packageName;.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">&packageName;.StartPhoneState</string>
+    <string name="action_widget_start_location">&packageName;.StartLocation</string>
+    <string name="action_widget_start_motion">&packageName;.StartMotion</string>
+    <string name="action_widget_start_ambience">&packageName;.StartAmbience</string>
+    <string name="action_widget_start_devices">&packageName;.StartDevices</string>
+    <string name="action_widget_start_external">&packageName;.StartExternal</string>
+    <string name="action_widget_stop_phone_state">&packageName;.StopPhoneState</string>
+    <string name="action_widget_stop_location">&packageName;.StopLocation</string>
+    <string name="action_widget_stop_motion">&packageName;.StopMotion</string>
+    <string name="action_widget_stop_ambience">&packageName;.StopAmbience</string>
+    <string name="action_widget_stop_devices">&packageName;.StopDevices</string>
+    <string name="action_widget_stop_external">&packageName;.StopExternal</string>
     
-    <string name="stat_notify_action">nl.ask.paige.dealrecipient.app.NOTIFICATION</string>
-    <string name="stat_notify_title">DEAL Recipient</string>
+    <string name="stat_notify_action">&packageName;.app.NOTIFICATION</string>
+    <string name="stat_notify_title">DEV DEAL Recipient</string>
     <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string> 
     <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>  
     <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string> 
