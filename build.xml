@@ -4,7 +4,7 @@
     <!-- today's date: used by both APK targets (driver/recipient) and versions (dev/prod) -->
     <tstamp>
         <format property="today" pattern="yyyyMMdd"/>
-    </tstamp>
+    </tstamp> 
 
     <!-- recipient (dev) properties -->
     <property name="recipient.dev.app_url" value="http://recipient-test.deal-mobile.appspot.com/paige.html"/>
