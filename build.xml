@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+    <!-- today's date: used by both APK targets (driver/recipient) and versions (dev/prod) -->
+    <tstamp>
+        <format property="today" pattern="yyyyMMdd"/>
+    </tstamp>
+
+    <!-- recipient (dev) properties -->
+    <property name="recipient.dev.app_url" value="http://recipient-test.deal-mobile.appspot.com/paige.html"/>
+    <property name="recipient.dev.app_name" value="DEV DEAL Recipient"/>
+    <property name="recipient.dev.sense_app_name" value="DEV DEAL Recipient (Sense)"/>
+    <property name="recipient.dev.version" value="1.0.8"/>
+    <property name="recipient.dev.package" value="nl.dealservices.dealrecipienttest"/>
+    <property name="recipient.dev.launcher" value="ic_launcher_paige_dev"/>
+
+    <!-- recipient (prod) properties -->
+    <property name="recipient.prod.app_url" value="http://recipient.deal-mobile.appspot.com/paige.html"/>
+    <property name="recipient.prod.app_name" value="DEAL Recipient"/>
+    <property name="recipient.prod.sense_app_name" value="DEAL Recipient (Sense)"/>
+    <property name="recipient.prod.version" value="1.0.9"/>
+    <property name="recipient.prod.package" value="nl.dealservices.dealrecipient"/>
+    <property name="recipient.prod.launcher" value="ic_launcher_paige_dev"/>
+
+    <!-- 
+                                                   RECIPIENT PROD 
+    -->
+    <target name="recipient-prod">
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_url">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_url">${recipient.prod.app_url}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_name">${recipient.prod.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="sense_app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="sense_app_name">${recipient.prod.sense_app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${recipient.prod.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_action">${recipient.prod.package}.NOTIFICATION&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_title">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_title">${recipient.prod.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;!DOCTYPE(\s+)manifest(\s*)\[(\s*)&lt;!ENTITY(\s*)packageName(\s*)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1manifest\2[\3&lt;!ENTITY\4packageName\5"${recipient.prod.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;manifest(\s+)xmlns:android="http://schemas.android.com/apk/res/android"(\s+)android:versionCode="[^"]*"(\s+)android:versionName="[^"]*"(\s+)package="[^"]*">'
+                replace='&lt;manifest\1xmlns:android="http://schemas.android.com/apk/res/android"\2android:versionCode="${today}"\3android:versionName="${recipient.prod.version}"\4package="${recipient.prod.package}">'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;application(\s+)android:icon="@drawable/[^"]*"'
+                replace='&lt;application\1android:icon="@drawable/${recipient.prod.launcher}"'
+                byline="false"/>
+
+    </target>
+
+    <!-- 
+                                                   RECIPIENT DEV 
+    -->
+    <target name="recipient-dev">
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_url">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_url">${recipient.dev.app_url}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_name">${recipient.dev.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="sense_app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="sense_app_name">${recipient.dev.sense_app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${recipient.dev.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_action">${recipient.dev.package}.NOTIFICATION&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_title">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_title">${recipient.dev.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;!DOCTYPE(\s+)manifest(\s*)\[(\s*)&lt;!ENTITY(\s*)packageName(\s*)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1manifest\2[\3&lt;!ENTITY\4packageName\5"${recipient.dev.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;manifest(\s+)xmlns:android="http://schemas.android.com/apk/res/android"(\s+)android:versionCode="[^"]*"(\s+)android:versionName="[^"]*"(\s+)package="[^"]*">'
+                replace='&lt;manifest\1xmlns:android="http://schemas.android.com/apk/res/android"\2android:versionCode="${today}"\3android:versionName="${recipient.dev.version}"\4package="${recipient.dev.package}">'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;application(\s+)android:icon="@drawable/[^"]*"'
+                replace='&lt;application\1android:icon="@drawable/${recipient.dev.launcher}"'
+                byline="false"/>
+
+    </target>
+    
+</project>
