@@ -17,7 +17,7 @@
     <!-- driver (prod) properties -->
     <property name="driver.prod.app_url" value="http://driver.deal-mobile.appspot.com/paige.html"/>
     <property name="driver.prod.app_name" value="DEAL Driver"/>
-    <property name="driver.prod.sense_app_name" value="DEAL Driver (Sense)"/>
+    <property name="driver.prod.sense_app_name" value="DEAL Driver (Sense)"/> 
     <property name="driver.prod.version" value="1.0.7"/>
     <property name="driver.prod.package" value="nl.dealservices.dealdriver"/>
     <property name="driver.prod.launcher" value="ic_launcher_paige"/>
@@ -49,12 +49,6 @@
                 file="res/values/strings.xml"
                 match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
                 replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${driver.prod.package}">\6]>'
-                byline="false"/>
-
-        <replaceregexp
-                file="res/values/strings.xml"
-                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
-                replace='&lt;string name="stat_notify_action">${driver.prod.package}.NOTIFICATION&lt;/string>'
                 byline="false"/>
 
         <replaceregexp
@@ -110,12 +104,6 @@
                 file="res/values/strings.xml"
                 match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
                 replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${driver.dev.package}">\6]>'
-                byline="false"/>
-
-        <replaceregexp
-                file="res/values/strings.xml"
-                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
-                replace='&lt;string name="stat_notify_action">${driver.dev.package}.NOTIFICATION&lt;/string>'
                 byline="false"/>
 
         <replaceregexp

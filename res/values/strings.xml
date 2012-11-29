@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE resources [
-<!ENTITY packageName "nl.dealservices.dealdrivertest">
+<!ENTITY packageName "nl.dealservices.dealdriver">
 ]>
 
 
 <resources>
 
     <!-- MAIN APP NAME -->
-    <string name="app_name">DEV DEAL Driver</string>
+    <string name="app_name">DEAL Driver</string>
 
     <!-- OVERRIDE SENSE APP LABEL -->
-    <string name="sense_app_name">DEV DEAL Driver (Sense)</string>
+    <string name="sense_app_name">DEAL Driver (Sense)</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-<!-- For test app:   -->
-   	<string name="app_url">http://driver-test.deal-mobile.appspot.com/paige.html</string>
+   	<string name="app_url">http://driver.deal-mobile.appspot.com/paige.html</string>
    	
-<!-- For live app:   	
-	<string name="app_url">http://driver.deal-mobile.appspot.com/paige.html</string> -->
-	
-<!--     <string name="app_url">http://192.168.128.252:54990/paige.html</string> -->
-	 
-<!--  	<string name="app_url">http://dealdriver.paige4ask.appspot.com/paige.html</string> -->
-<!--     <string name="app_url">http://10.200.200.115:8889/paige.html</string> -->
-<!--     <string name="app_url">http://paige4ask.appspot.com</string> -->
-<!--    <string name="app_url">http://paige.ask-cs.com</string> -->
-
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">&packageName;.SenseApp</string>
     <string name="action_sense_settings">&packageName;.SenseSettings</string>
@@ -53,7 +42,7 @@
     
     <!-- NOTIFICATION RESOURCES -->
     <string name="stat_notify_action">&packageName;.NOTIFICATION</string>
-    <string name="stat_notify_title">DEV DEAL Driver</string>
+    <string name="stat_notify_title">DEAL Driver</string>
     <string name="stat_notify_content_off_loggedin">Sensors inactive, logged in as \'%s\'</string>
     <string name="stat_notify_content_off_loggedout">Sensors inactive, no connection to CommonSense</string>
     <string name="stat_notify_content_on_loggedin">"Sensors active, logged in as \'%s\'"</string>

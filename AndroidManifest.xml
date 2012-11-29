@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE manifest [
-<!ENTITY packageName "nl.dealservices.dealdrivertest">
+<!ENTITY packageName "nl.dealservices.dealdriver">
 ]>
 
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20121116"
-    android:versionName="1.0.6.1"
-    package="nl.dealservices.dealdrivertest">
+    android:versionCode="20121129"
+    android:versionName="1.0.7"
+    package="nl.dealservices.dealdriver">
     
     <uses-feature
         android:name="android.hardware.location.gps"
@@ -65,7 +65,7 @@
         android:targetSdkVersion="10" />
 
     <application
-        android:icon="@drawable/ic_launcher_paige_dev"
+        android:icon="@drawable/ic_launcher_paige"
         android:label="@string/app_name" 
         android:hardwareAccelerated="true" >
 
