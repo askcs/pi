@@ -13,17 +13,7 @@
     <string name="sense_app_name">DEV DEAL Recipient (Sense)</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-<!-- For test app:  -->
    	<string name="app_url">http://recipient-test.deal-mobile.appspot.com/paige.html</string>
-   	
-<!-- For live app:   	
-   	<string name="app_url">http://recipient.deal-mobile.appspot.com/paige.html</string> -->
-   	
-<!--   	<string name="app_url">http://192.168.128.252:54990/paige.html</string> -->
-<!-- 	<string name="app_url">http://dealrecipient.paige4ask.appspot.com/paige.html</string>  -->
-<!--     <string name="app_url">http://10.200.200.120:9999/paige.html</string> -->
-<!--     <string name="app_url">http://paige4ask.appspot.com</string> -->
-<!--    <string name="app_url">http://paige.ask-cs.com</string> -->
     
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">&packageName;.SenseApp</string>

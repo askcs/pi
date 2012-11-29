@@ -53,12 +53,6 @@
 
         <replaceregexp
                 file="res/values/strings.xml"
-                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
-                replace='&lt;string name="stat_notify_action">${recipient.prod.package}.NOTIFICATION&lt;/string>'
-                byline="false"/>
-
-        <replaceregexp
-                file="res/values/strings.xml"
                 match='&lt;string\s+name="stat_notify_title">[^&lt;]*&lt;/string>'
                 replace='&lt;string name="stat_notify_title">${recipient.prod.app_name}&lt;/string>'
                 byline="false"/>
@@ -110,12 +104,6 @@
                 file="res/values/strings.xml"
                 match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
                 replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${recipient.dev.package}">\6]>'
-                byline="false"/>
-
-        <replaceregexp
-                file="res/values/strings.xml"
-                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
-                replace='&lt;string name="stat_notify_action">${recipient.dev.package}.NOTIFICATION&lt;/string>'
                 byline="false"/>
 
         <replaceregexp
