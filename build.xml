@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+    <!-- today's date: used by both APK targets (driver/recipient) and versions (dev/prod) -->
+    <tstamp>
+        <format property="today" pattern="yyyyMMdd"/>
+    </tstamp>
+
+    <!-- driver (dev) properties -->
+    <property name="driver.dev.app_url" value="http://driver-test.deal-mobile.appspot.com/paige.html"/>
+    <property name="driver.dev.app_name" value="DEV DEAL Driver"/>
+    <property name="driver.dev.sense_app_name" value="DEV DEAL Driver (Sense)"/>
+    <property name="driver.dev.version" value="1.0.6"/>
+    <property name="driver.dev.package" value="nl.dealservices.dealdrivertest"/>
+    <property name="driver.dev.launcher" value="ic_launcher_paige_dev"/>
+
+    <!-- driver (prod) properties -->
+    <property name="driver.prod.app_url" value="http://driver.deal-mobile.appspot.com/paige.html"/>
+    <property name="driver.prod.app_name" value="DEAL Driver"/>
+    <property name="driver.prod.sense_app_name" value="DEAL Driver (Sense)"/>
+    <property name="driver.prod.version" value="1.0.7"/>
+    <property name="driver.prod.package" value="nl.dealservices.dealdriver"/>
+    <property name="driver.prod.launcher" value="ic_launcher_paige"/>
+
+    <!-- 
+                                                   DRIVER PROD 
+    -->
+    <target name="driver-prod">
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_url">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_url">${driver.prod.app_url}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_name">${driver.prod.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="sense_app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="sense_app_name">${driver.prod.sense_app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${driver.prod.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_action">${driver.prod.package}.NOTIFICATION&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_title">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_title">${driver.prod.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;!DOCTYPE(\s+)manifest(\s*)\[(\s*)&lt;!ENTITY(\s*)packageName(\s*)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1manifest\2[\3&lt;!ENTITY\4packageName\5"${driver.prod.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;manifest(\s+)xmlns:android="http://schemas.android.com/apk/res/android"(\s+)android:versionCode="[^"]*"(\s+)android:versionName="[^"]*"(\s+)package="[^"]*">'
+                replace='&lt;manifest\1xmlns:android="http://schemas.android.com/apk/res/android"\2android:versionCode="${today}"\3android:versionName="${driver.prod.version}"\4package="${driver.prod.package}">'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;application(\s+)android:icon="@drawable/[^"]*"'
+                replace='&lt;application\1android:icon="@drawable/${driver.prod.launcher}"'
+                byline="false"/>
+
+    </target>
+
+    <!--
+                                                   DRIVER DEV
+    -->
+    <target name="driver-dev">
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_url">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_url">${driver.dev.app_url}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="app_name">${driver.dev.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string name="sense_app_name">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="sense_app_name">${driver.dev.sense_app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;!DOCTYPE(\s+)resources(\s*)\[(\s*)&lt;!ENTITY(\s+)packageName(\s+)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1resources\2[\3&lt;!ENTITY\4packageName\5"${driver.dev.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_action">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_action">${driver.dev.package}.NOTIFICATION&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="res/values/strings.xml"
+                match='&lt;string\s+name="stat_notify_title">[^&lt;]*&lt;/string>'
+                replace='&lt;string name="stat_notify_title">${driver.dev.app_name}&lt;/string>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;!DOCTYPE(\s+)manifest(\s*)\[(\s*)&lt;!ENTITY(\s*)packageName(\s*)"[^"]*">(\s*)\]>'
+                replace='&lt;!DOCTYPE\1manifest\2[\3&lt;!ENTITY\4packageName\5"${driver.dev.package}">\6]>'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;manifest(\s+)xmlns:android="http://schemas.android.com/apk/res/android"(\s+)android:versionCode="[^"]*"(\s+)android:versionName="[^"]*"(\s+)package="[^"]*">'
+                replace='&lt;manifest\1xmlns:android="http://schemas.android.com/apk/res/android"\2android:versionCode="${today}"\3android:versionName="${driver.dev.version}"\4package="${driver.dev.package}">'
+                byline="false"/>
+
+        <replaceregexp
+                file="AndroidManifest.xml"
+                match='&lt;application(\s+)android:icon="@drawable/[^"]*"'
+                replace='&lt;application\1android:icon="@drawable/${driver.dev.launcher}"'
+                byline="false"/>
+
+    </target>
+    
+</project>
