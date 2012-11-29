@@ -43,4 +43,27 @@
     <string name="toggle_message">Message Center</string>
     <string name="count_mess">x messages</string>
     
+    <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
+    <string name="action_sense_app">nl.ask.paige.app.SenseApp</string>
+    <string name="action_sense_settings">nl.ask.paige.app.SenseSettings</string>
+    <string name="action_sense_service">nl.ask.paige.app.SenseService</string>
+    <string name="action_sense_new_data">nl.ask.paige.app.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ask.paige.app.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ask.paige.app.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ask.paige.app.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ask.paige.app.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ask.paige.app.DataTransmit</string>
+    <string name="action_widget_update">nl.ask.paige.app.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ask.paige.app.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ask.paige.app.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ask.paige.app.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ask.paige.app.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ask.paige.app.StartDevices</string>
+    <string name="action_widget_start_external">nl.ask.paige.app.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ask.paige.app.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ask.paige.app.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ask.paige.app.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ask.paige.app.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ask.paige.app.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ask.paige.app.StopExternal</string>
 </resources>

@@ -70,9 +70,9 @@
         android:targetSdkVersion="11" />
 
     <application
+        android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher_paige"
-        android:label="@string/app_name"
-        android:hardwareAccelerated="true" >
+        android:label="@string/app_name" >
 
         <!-- REQUIRED FOR PHONEGAP -->
         <activity android:name="com.phonegap.DroidGap" />
@@ -80,7 +80,7 @@
         <!-- PAIGE EXECUTION ENVIRONMENT COMPONENTS -->
         <activity
             android:name="nl.ask.paige.app.PaigeSplash"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -103,41 +103,47 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name="nl.ask.paige.app.PaigeLogin"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="nl.ask.paige.app.PaigeForgotPass"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="nl.ask.paige.app.PaigeRegister"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="nl.ask.paige.app.PaigeHome"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
         </activity>
         <activity
             android:name="nl.ask.paige.app.PaigeMessageCenter"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
         </activity>
         <activity
             android:name="nl.ask.paige.app.PaigeChat"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
         </activity>
         <activity
             android:name="nl.ask.paige.app.SettingsDialogMessages"
-            android:screenOrientation="portrait" 
+            android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
         </activity>
+
+        <service android:name="nl.ask.paige.app.connection.IXmppConnectionService" >
+        </service>
+        <service android:name="nl.ask.paige.app.connection.XmppConnectionService" >
+        </service>
+        
 
         <receiver
             android:name="nl.ask.paige.app.messages.C2DMReceiver"
