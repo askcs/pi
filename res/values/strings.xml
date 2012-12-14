@@ -8,39 +8,39 @@
 
     <!-- URL FOR WEB VIEW CONTENT -->
     <string name="app_url">http://buurtzorg.paige4ask.appspot.com</string>
-<!-- <string name="app_url">http://10.200.200.100:8889/</string> -->
+<!-- <string name="app_url">http://10.200.200.100:9999/</string> -->
 
     <string name="dialog_connectivity_msg">Geen internetverbinding! De app is niet beschikbaar, probeer het later opnieuw.</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
-    <string name="action_sense_app">nl.ask.paige.buurtzorg.SenseApp</string>
-    <string name="action_sense_settings">nl.ask.paige.buurtzorg.SenseSettings</string>
-    <string name="action_sense_service">nl.ask.paige.buurtzorg.SenseService</string>
-    <string name="action_sense_new_data">nl.ask.paige.buurtzorg.MsgHandler.NEW_DATA</string>
-    <string name="action_sense_send_data">nl.ask.paige.buurtzorg.MsgHandler.SEND_DATA</string>
-    <string name="action_sense_feedback_check">nl.ask.paige.buurtzorg.FeedbackCheck</string>
-    <string name="action_sense_feedback_check_alarm">nl.ask.paige.buurtzorg.FeedbackAlarm</string>
-    <string name="action_sense_alive_check_alarm">nl.ask.paige.buurtzorg.AliveCheck</string>
-    <string name="action_sense_data_transmit_alarm">nl.ask.paige.buurtzorg.DataTransmit</string>
-    <string name="action_widget_update">nl.ask.paige.buurtzorg.AppWidgetUpdate</string>
-    <string name="action_widget_start_phone_state">nl.ask.paige.buurtzorg.StartPhoneState</string>
-    <string name="action_widget_start_location">nl.ask.paige.buurtzorg.StartLocation</string>
-    <string name="action_widget_start_motion">nl.ask.paige.buurtzorg.StartMotion</string>
-    <string name="action_widget_start_ambience">nl.ask.paige.buurtzorg.StartAmbience</string>
-    <string name="action_widget_start_devices">nl.ask.paige.buurtzorg.StartDevices</string>
-    <string name="action_widget_start_external">nl.ask.paige.buurtzorg.StartExternal</string>
-    <string name="action_widget_stop_phone_state">nl.ask.paige.buurtzorg.StopPhoneState</string>
-    <string name="action_widget_stop_location">nl.ask.paige.buurtzorg.StopLocation</string>
-    <string name="action_widget_stop_motion">nl.ask.paige.buurtzorg.StopMotion</string>
-    <string name="action_widget_stop_ambience">nl.ask.paige.buurtzorg.StopAmbience</string>
-    <string name="action_widget_stop_devices">nl.ask.paige.buurtzorg.StopDevices</string>
-    <string name="action_widget_stop_external">nl.ask.paige.buurtzorg.StopExternal</string>
+    <string name="action_sense_app">nl.ecareservices.buurtzorg.SenseApp</string>
+    <string name="action_sense_settings">nl.ecareservices.buurtzorg.SenseSettings</string>
+    <string name="action_sense_service">nl.ecareservices.buurtzorg.SenseService</string>
+    <string name="action_sense_new_data">nl.ecareservices.buurtzorg.MsgHandler.NEW_DATA</string>
+    <string name="action_sense_send_data">nl.ecareservices.buurtzorg.MsgHandler.SEND_DATA</string>
+    <string name="action_sense_feedback_check">nl.ecareservices.buurtzorg.FeedbackCheck</string>
+    <string name="action_sense_feedback_check_alarm">nl.ecareservices.buurtzorg.FeedbackAlarm</string>
+    <string name="action_sense_alive_check_alarm">nl.ecareservices.buurtzorg.AliveCheck</string>
+    <string name="action_sense_data_transmit_alarm">nl.ecareservices.buurtzorg.DataTransmit</string>
+    <string name="action_widget_update">nl.ecareservices.buurtzorg.AppWidgetUpdate</string>
+    <string name="action_widget_start_phone_state">nl.ecareservices.buurtzorg.StartPhoneState</string>
+    <string name="action_widget_start_location">nl.ecareservices.buurtzorg.StartLocation</string>
+    <string name="action_widget_start_motion">nl.ecareservices.buurtzorg.StartMotion</string>
+    <string name="action_widget_start_ambience">nl.ecareservices.buurtzorg.StartAmbience</string>
+    <string name="action_widget_start_devices">nl.ecareservices.buurtzorg.StartDevices</string>
+    <string name="action_widget_start_external">nl.ecareservices.buurtzorg.StartExternal</string>
+    <string name="action_widget_stop_phone_state">nl.ecareservices.buurtzorg.StopPhoneState</string>
+    <string name="action_widget_stop_location">nl.ecareservices.buurtzorg.StopLocation</string>
+    <string name="action_widget_stop_motion">nl.ecareservices.buurtzorg.StopMotion</string>
+    <string name="action_widget_stop_ambience">nl.ecareservices.buurtzorg.StopAmbience</string>
+    <string name="action_widget_stop_devices">nl.ecareservices.buurtzorg.StopDevices</string>
+    <string name="action_widget_stop_external">nl.ecareservices.buurtzorg.StopExternal</string>
     
     <!-- LOCAL STORAGE AUTHORITY HAS TO BE UNIQUE TO AVOID CONFLICTS -->
-    <string name="local_storage_authority">nl.ask.paige.buurtzorg.provider.LocalStorage</string>
+    <string name="local_storage_authority">nl.ecareservices.buurtzorg.provider.LocalStorage</string>
 
     <!-- OVERRIDE STATUS BAR NOTIFICATION RESOURCES -->
-    <string name="stat_notify_action">nl.ask.paige.buurtzorg.NOTIFICATION</string>
+    <string name="stat_notify_action">nl.ecareservices.buurtzorg.NOTIFICATION</string>
     <string name="stat_notify_title">Buurtzorg</string>
     <string name="stat_notify_content_off_loggedin">Buurtzorg app niet actief</string>
     <string name="stat_notify_content_off_loggedout">Buurtzorg app niet actief</string>
