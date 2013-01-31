@@ -89,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="nl.ask.paige.app.PaigeNative"
+            android:name="nl.ask.paige.app.Paige"
             android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo" >
             <intent-filter>
@@ -131,6 +131,7 @@
         <activity
             android:name="nl.ask.paige.app.PaigeChat"
             android:screenOrientation="portrait"
+            android:launchMode="singleTop"
             android:theme="@style/android:Theme.Holo" >
         </activity>
         <activity

@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">Paige default</string>
-    <string name="app_url">http://10.200.200.170:8888</string>
-    <string name="url">http://10.200.200.170:9000</string>
+    <string name="app_url">http://10.200.200.180:8888</string>
+    <string name="url">http://10.200.200.180:9000</string>
     
     <string name="dialog_connectivity_msg">Internet connection unavailable! Please try again later.</string>
     <string name="menu_title_settings">Settings</string>
