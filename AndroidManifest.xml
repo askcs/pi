@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.ask.paige.isparaat"
+    package="nl.ask.paige.gvrb"
     android:versionCode="20120711"
     android:versionName="beta (July 6, 2012)" >
 
@@ -94,7 +94,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.isparaat.NOTIFICATION" />
+                <action android:name="nl.ask.paige.gvrb.NOTIFICATION" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -128,17 +128,17 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="nl.ask.paige.isparaat.messages.NewMsgCheckRx" />
+        <receiver android:name="nl.ask.paige.gvrb.messages.NewMsgCheckRx" />
 
-        <service android:name="nl.ask.paige.isparaat.messages.NewMsgChecker" />
+        <service android:name="nl.ask.paige.gvrb.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
             android:exported="false"
-            android:process="nl.ask.paige.isparaat.sense_service" >
+            android:process="nl.ask.paige.gvrb.sense_service" >
             <intent-filter>
-                <action android:name="nl.ask.paige.isparaat.SenseService" />
+                <action android:name="nl.ask.paige.gvrb.SenseService" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -150,12 +150,12 @@
             <!-- do not use separate process for this service to enable PhoneGap to get/put data -->
             <!-- android:process="nl.ask.paige.app.sense_msgs" -->
             <intent-filter>
-                <action android:name="nl.ask.paige.isparaat.MsgHandler.NEW_DATA" />
+                <action android:name="nl.ask.paige.gvrb.MsgHandler.NEW_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
-                <action android:name="nl.ask.paige.isparaat.MsgHandler.SEND_DATA" />
+                <action android:name="nl.ask.paige.gvrb.MsgHandler.SEND_DATA" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -165,7 +165,7 @@
 
         <receiver
             android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.isparaat.sense_monitoring" >
+            android:process="nl.ask.paige.gvrb.sense_monitoring" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -175,9 +175,9 @@
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
             android:exported="false"
-            android:process="nl.ask.paige.isparaat.sense_monitoring" >
+            android:process="nl.ask.paige.gvrb.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.isparaat.AliveCheck" />
+                <action android:name="nl.ask.paige.gvrb.AliveCheck" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -185,9 +185,9 @@
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
             android:exported="false"
-            android:process="nl.ask.paige.isparaat.sense_monitoring" >
+            android:process="nl.ask.paige.gvrb.sense_monitoring" >
             <intent-filter>
-                <action android:name="nl.ask.paige.isparaat.DataTransmit" />
+                <action android:name="nl.ask.paige.gvrb.DataTransmit" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -195,7 +195,7 @@
         <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
         <receiver
             android:name="nl.sense_os.service.NetworkMonitor"
-            android:process="nl.ask.paige.isparaat.sense_service" >
+            android:process="nl.ask.paige.gvrb.sense_service" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
