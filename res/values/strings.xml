@@ -2,7 +2,7 @@
 <resources>
 
     <!-- MAIN APP NAME -->
-    <string name="app_name">Paraat Paige</string>
+    <string name="app_name">GVRB Paige</string>
     <string name="sense_app_name">Sense Platform</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
