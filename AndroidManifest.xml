@@ -133,6 +133,9 @@
         <service android:name="nl.ask.paige.knrm.messages.NewMsgChecker" />
 
         <!-- SENSE PLATFORM COMPONENTS -->
+        <!-- SERVICE THAT CHECKS SENSOR REGISTRATION WITH COMMONSENSE -->
+        <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
+        
         <service
             android:name="nl.sense_os.service.SenseService"
             android:exported="false" >

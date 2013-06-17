@@ -8,7 +8,7 @@
     <string name="sense_app_name">Sense Platform</string>
 
     <!-- URL FOR WEB VIEW CONTENT -->
-<!--     <string name="app_url">http://10.200.200.100:8889</string> -->
+<!--      <string name="app_url">http://192.168.128.197:9999/paige.html</string> -->
 	<string name="app_url">http://geo.paige4knrm.appspot.com/paige.html</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
