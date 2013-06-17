@@ -135,8 +135,7 @@
         <!-- SENSE PLATFORM COMPONENTS -->
         <service
             android:name="nl.sense_os.service.SenseService"
-            android:exported="false"
-            android:process="nl.ask.paige.gvrb.sense_service" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="nl.ask.paige.gvrb.SenseService" />
 
@@ -164,8 +163,7 @@
         </service>
 
         <receiver
-            android:name="nl.sense_os.service.BootRx"
-            android:process="nl.ask.paige.gvrb.sense_monitoring" >
+            android:name="nl.sense_os.service.BootRx">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -174,8 +172,7 @@
         </receiver>
         <receiver
             android:name="nl.sense_os.service.AliveChecker"
-            android:exported="false"
-            android:process="nl.ask.paige.gvrb.sense_monitoring" >
+            android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.gvrb.AliveCheck" />
 
@@ -184,8 +181,7 @@
         </receiver>
         <receiver
             android:name="nl.sense_os.service.DataTransmitter"
-            android:exported="false"
-            android:process="nl.ask.paige.gvrb.sense_monitoring" >
+            android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.gvrb.DataTransmit" />
 
@@ -194,8 +190,7 @@
         </receiver>
         <!-- NetworkMonitor needs to be in the same process as the main SenseService service -->
         <receiver
-            android:name="nl.sense_os.service.NetworkMonitor"
-            android:process="nl.ask.paige.gvrb.sense_service" >
+            android:name="nl.sense_os.service.NetworkMonitor" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
