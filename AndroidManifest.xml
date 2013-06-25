@@ -136,8 +136,11 @@
         <!-- SERVICE THAT CHECKS SENSOR REGISTRATION WITH COMMONSENSE -->
         <service android:name="nl.sense_os.service.commonsense.DefaultSensorRegistrationService" />
         
+<!--         <service -->
+<!--             android:name="nl.sense_os.service.SenseService" -->
+<!--             android:exported="false" > -->
         <service
-            android:name="nl.sense_os.service.SenseService"
+            android:name="nl.ask.paige.app.PaigeService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="nl.ask.paige.knrm.SenseService" />

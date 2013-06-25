@@ -36,6 +36,10 @@
     <plugin
         name="PeePlugin"
         value="nl.ask.paige.plugin.PeePlugin" />
+    
+     <plugin
+        name="GeoPerimeter"
+        value="nl.ask.paige.plugin.GeoPerimeter" />
 
     <!-- Sense plugin -->
     <plugin
