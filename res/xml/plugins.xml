@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugins>
     <plugin name="App" value="org.apache.cordova.App"/>
+    <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
     <plugin name="Geolocation" value="org.apache.cordova.GeoBroker"/>
     <plugin name="Device" value="org.apache.cordova.Device"/>
     <plugin name="Accelerometer" value="org.apache.cordova.AccelListener"/>
@@ -45,4 +46,7 @@
     <plugin
         name="SensePlatform"
         value="com.phonegap.plugins.sense.SensePlugin" />
+    
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
 </plugins>

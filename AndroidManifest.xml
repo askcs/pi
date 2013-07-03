@@ -72,7 +72,9 @@
 
     <application
         android:icon="@drawable/ic_launcher_paige"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true"
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" >
 
         <!-- REQUIRED FOR PHONEGAP -->
         <activity android:name="com.phonegap.DroidGap" />
