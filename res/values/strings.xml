@@ -9,7 +9,7 @@
 
     <!-- URL FOR WEB VIEW CONTENT -->
 <!--      <string name="app_url">http://192.168.128.197:9999/paige.html</string> -->
-	<string name="app_url">http://geotest.paige4knrm.appspot.com/paige.html</string>
+	<string name="app_url">http://dordt.paige4knrm.appspot.com/paige.html</string>
 
     <!-- OVERRIDE INTENT ACTIONS FOR BUNDLED SENSE PLATFORM (ALSO CHANGE IN MANIFEST!!) -->
     <string name="action_sense_app">nl.ask.paige.knrm.SenseApp</string>
