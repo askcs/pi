@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.ask.paige.knrm"
-    android:versionCode="20120711"
-    android:versionName="beta (July 6, 2012)" >
+    android:versionCode="20130306"
+    android:versionName="1.0.l" >
 
     <permission
         android:name="nl.ask.paige.app.permission.C2D_MESSAGE"
